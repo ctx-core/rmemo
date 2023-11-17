@@ -1,5 +1,11 @@
 # @ctx-core/rmemo
 
+## 0.2.1
+
+### Patch Changes
+
+- tsx: ^4.1.2 -> ^4.1.3
+
 ## 0.2.0
 
 ### Minor Changes
