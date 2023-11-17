@@ -51,17 +51,17 @@ rmemo is a small & focused library. It supports `rmemo_` (like nanostores `compu
 solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte `writable`, solidjs 
 `createSignal`, & VanJS `state`).
 
-| ****                                | **rmemo** | **nanostores**   | **solidjs**      | **sveltejs** | **vanjs** |
-|-------------------------------------|-----------|------------------|------------------|--------------|-----------|
-| **small payload**                   | ✅         | ✅                | ✅                | ✅            | ✅         |
-| **performant**                      | ✅         | ✅                | ✅                | ✅            | ✅         |
-| **autosubscriptions**               | ✅         | ❌                | ✅                | ❌            | ✅         |
-| **server side reactivity**          | ✅         | ✅                | ✅                | ✅            | ❌         |
-| **diamond dependencies**            | ✅         | ✅                | ✅                | ✅            | ❌         |
-| **independent from component tree** | ✅         | ✅                | ❌ (next version) | ✅            | ✅         |
-| **reactive async**                  | ✅         | ❌ (next version) | ✅                | ❌            | ❌         |
-| **terse api**                       | ✅         | ❌                | ❌                | ❌            | ✅         |
-| **ecosystem of libraries**          | ❌         | ✅                | ✅                | ✅            | ✅         |
+|                                     | **rmemo**  |   **nanostores**   |    **solidjs**     |  **sveltejs**  |  **vanjs**  |
+|-------------------------------------|:----------:|:------------------:|:------------------:|:--------------:|:-----------:|
+| **small payload**                   |     ✅      |         ✅          |         ✅          |       ✅        |      ✅      |
+| **performant**                      |     ✅      |         ✅          |         ✅          |       ✅        |      ✅      |
+| **autosubscriptions**               |     ✅      |         ❌          |         ✅          |       ❌        |      ✅      |
+| **server side reactivity**          |     ✅      |         ✅          |         ✅          |       ✅        |      ❌      |
+| **diamond dependencies**            |     ✅      |         ✅          |         ✅          |       ✅        |      ❌      |
+| **independent from component tree** |     ✅      |         ✅          |  ❌ (next version)  |       ✅        |      ✅      |
+| **reactive async**                  |     ✅      |  ❌ (next version)  |         ✅          |       ❌        |      ❌      |
+| **terse api**                       |     ✅      |         ❌          |         ❌          |       ❌        |      ✅      |
+| **ecosystem of libraries**          |     ❌      |         ✅          |         ✅          |       ✅        |      ✅      |
 
 It will not support contexts. A general purpose context library, such as ctx-core fulfills that need in a more 
 effective manner. Note that ctx-core can be used with any of these libraries.
