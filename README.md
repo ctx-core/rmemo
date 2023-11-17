@@ -11,7 +11,7 @@ browser. This includes:
 - performance
 - integration with garbage collector
 
-size chart:
+sizes:
 
 - rmemo_: 358B
 - rmemo_ + rsig_ : 387B
