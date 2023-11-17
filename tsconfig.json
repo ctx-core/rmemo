@@ -1,0 +1,13 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "nodenext",
+		"target": "ESNext",
+		"strict": true
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"references": []
+}

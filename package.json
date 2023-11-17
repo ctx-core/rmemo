@@ -1,0 +1,51 @@
+{
+	"name": "rmemo",
+	"version": "0.1.0",
+	"description": "ctx-core rmemo",
+	"keywords": [
+		"ctx-core",
+		"rmemo",
+		"reactive memo",
+		"reactive signal"
+	],
+	"homepage": "https://github.com/ctx-core/rmemo#readme",
+	"bugs": {
+		"url": "https://github.com/ctx-core/rmemo/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ctx-core/rmemo.git"
+	},
+	"license": "Apache-2.0",
+	"author": "Brian Takita",
+	"type": "module",
+	"types": "./index.d.ts",
+	"exports": {
+		".": "./index.js",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": ":",
+		"clean": ":",
+		"exec": "$@",
+		"prepublishOnly": "pnpm clean && pnpm build",
+		"test": "pnpm test-unit && check-dts",
+		"test-unit": "tsx node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
+		"test-unit-coverage": "c8 pnpm test-unit"
+	},
+	"dependencies": {
+		"ctx-core": "^3.0.0"
+	},
+	"devDependencies": {
+		"c8": "^8.0.1",
+		"check-dts": "^0.7.2",
+		"tsx": "^4.1.2",
+		"typescript": "next",
+		"uvu": "^0.5.6"
+	},
+	"publishConfig": {
+		"access": "public",
+		"cache": "~/.npm"
+	},
+	"sideEffects": false
+}
