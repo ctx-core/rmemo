@@ -1,5 +1,17 @@
 # @ctx-core/rmemo
 
+## 0.2.2
+
+### Patch Changes
+
+- fix: subscriber_a is lazy:
+
+      rmemo: + 7B
+      rmemo signal: + 8B
+
+- Updated dependencies
+  - ctx-core@3.2.1
+
 ## 0.2.1
 
 ### Patch Changes

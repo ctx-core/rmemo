@@ -1,5 +1,5 @@
 # rmemo (Reactive Memo)
-rmemo is a tiny (377B) no-fluff state management library using reactive memos & reactive signals for the server & 
+rmemo is a tiny (385B) no-fluff state management library using reactive memos & reactive signals for the server & 
 browser. This includes:
 
 * reactive memos

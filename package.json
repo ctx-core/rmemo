@@ -1,6 +1,6 @@
 {
 	"name": "rmemo",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "ctx-core rmemo",
 	"keywords": [
 		"ctx-core",
@@ -29,12 +29,14 @@
 		"clean": ":",
 		"exec": "$@",
 		"prepublishOnly": "pnpm clean && pnpm build",
-		"test": "pnpm test-unit && check-dts",
-		"test-unit": "tsx node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
-		"test-unit-coverage": "c8 pnpm test-unit"
+		"test": "pnpm run /^test:/",
+		"test:size": "size-limit",
+		"test:type": "check-dts",
+		"test:unit": "tsx node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
+		"disable:test:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^3.2.0"
+		"ctx-core": "^3.2.1"
 	},
 	"devDependencies": {
 		"c8": "^8.0.1",
