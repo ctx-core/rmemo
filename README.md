@@ -11,11 +11,11 @@ browser. This includes:
 - performance
 - integration with garbage collector
 
-sizes:
-
-- rmemo_: 358B
-- rmemo_ + rsig_ : 387B
-- rmemo_ + rsig_ + be_ + ctx__new: 771B
+| imports                         | size |
+|---------------------------------|:----:|
+| rmemo_                          | 358B |
+| rmemo_ + rsig_                  | 387  |
+| rmemo_ + rsig_ + be_ + ctx__new | 771  |
 
 ## usage
 
@@ -68,6 +68,6 @@ solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte
 | **terse api**                       |     ✅     |        ❌         |         ❌          |         ❌          |     ✅     |
 | **contexts**                        |     ✅     | ❌ (next version) | ✅ (component tree) | ✅ (component tree) |     ❌     |
 
-Since ctx-core is a general purpose context library, ctx-core's context functions (`be_` & `ctx__new`) are 
+Since ctx-core is a general purpose context library, ctx-core's context functions (`be_` & `ctx__new`) are
 compatible with all of these libraries.
 ctx-core context functions are included in the rmemo package.

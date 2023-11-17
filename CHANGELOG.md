@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.3.4
+
+### Patch Changes
+
+- README: imports|size table instead of bullet list
+
 ## 0.3.3
 
 ### Patch Changes
