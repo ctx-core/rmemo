@@ -15,9 +15,8 @@ browser. This includes:
 ```ts
 import { rmemo_, rsig_ } from 'rmemo'
 
-export const user_a$ = rsig_<User[]>([], async user_a$ => {
-	user_a$(await fetch('https://an.api/users').then(res => res.json()))
-})
+export const user_a$ = rsig_<User[]>([], user_a$ =>
+	fetch('https://an.api/users').then(res => res.json()).then(user_a$))
 
 export function user__add(user: User) {
   user_a$([...user_a$(), user])
