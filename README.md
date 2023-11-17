@@ -66,7 +66,6 @@ solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte
 | **reactive async**                  |     ✅     | ❌ (next version) |         ✅          |         ❌          |     ❌     |
 | **terse api**                       |     ✅     |        ❌         |         ❌          |         ❌          |     ✅     |
 | **contexts**                        |     ✅     | ❌ (next version) | ✅ (component tree) | ✅ (component tree) |     ❌     |
-| **ecosystem of libraries**          |     ❌     |        ✅         |         ✅          |         ✅          |     ✅     |
 
 Since ctx-core is a general purpose context library, ctx-core's context functions (`be_` & `ctx__new`) are 
 compatible with all of these libraries.

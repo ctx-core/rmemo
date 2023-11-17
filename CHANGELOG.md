@@ -1,5 +1,15 @@
 # @ctx-core/rmemo
 
+## 0.3.1
+
+### Patch Changes
+
+- README: feature chart: - ecosystem of libraries:
+
+      ctx-core is a small ecosystem of libraries:
+      	all of the compared reactive libraries have ecosystems of varying size:
+      		admittedly, rmemo's ecosystem is small & is based on ctx-core...yet is effective
+
 ## 0.3.0
 
 ### Minor Changes
