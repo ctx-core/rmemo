@@ -62,6 +62,7 @@ solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte
 | **autosubscriptions**               |     ✅     |        ❌         |         ✅          |         ❌          |     ✅     |
 | **server side reactivity**          |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
 | **diamond dependencies**            |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
+| **independent from UI library**     |     ✅     |        ✅         | ❌ (next version?)  |         ❌          |     ❌     |
 | **independent from component tree** |     ✅     |        ✅         |  ❌ (next version)  |         ✅          |     ✅     |
 | **reactive async**                  |     ✅     | ❌ (next version) |         ✅          |         ❌          |     ❌     |
 | **terse api**                       |     ✅     |        ❌         |         ❌          |         ❌          |     ✅     |

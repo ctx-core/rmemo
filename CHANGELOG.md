@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.3.3
+
+### Patch Changes
+
+- README: feature table: + independent from UI library
+
 ## 0.3.2
 
 ### Patch Changes
