@@ -14,8 +14,8 @@ browser. This includes:
 | imports                         | size |
 |---------------------------------|:----:|
 | rmemo_                          | 358B |
-| rmemo_ + rsig_                  | 387  |
-| rmemo_ + rsig_ + be_ + ctx__new | 771  |
+| rmemo_ + rsig_                  | 387B |
+| rmemo_ + rsig_ + be_ + ctx__new | 771B |
 
 ## usage
 

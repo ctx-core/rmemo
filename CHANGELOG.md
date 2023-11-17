@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.3.5
+
+### Patch Changes
+
+- README: imports|size table: all sizes are in bytes (B)
+
 ## 0.3.4
 
 ### Patch Changes
