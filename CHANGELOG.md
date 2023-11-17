@@ -1,4 +1,10 @@
-# @ctx-core/rmemo
+# rmemo
+
+## 0.3.2
+
+### Patch Changes
+
+- CHANGELOG: header: fix: rmemo instead of @ctx-core/rmemo
 
 ## 0.3.1
 
