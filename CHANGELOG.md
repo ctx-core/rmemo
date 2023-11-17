@@ -1,5 +1,11 @@
 # @ctx-core/rmemo
 
+## 0.2.3
+
+### Patch Changes
+
+- ctx-core: ^3.2.1 -> ^3.2.2
+
 ## 0.2.2
 
 ### Patch Changes
