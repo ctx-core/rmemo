@@ -1,5 +1,18 @@
 # rmemo
 
+## 0.3.7
+
+### Patch Changes
+
+- rmemo\_: cur_ref.l: ternery instead of bitwise:
+
+      rmemo_: - 2B
+      rmemo_ signal_: - 7B
+      rmemo_ signal_ be_ ctx_: - 6B
+
+- Updated dependencies
+  - ctx-core@3.3.2
+
 ## 0.3.6
 
 ### Patch Changes
