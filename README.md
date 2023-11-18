@@ -15,7 +15,7 @@ browser. This includes:
 |-----------------------------|:----:|
 | rmemo_                      | 356B |
 | rmemo_ + rsig_              | 380B |
-| rmemo_ + rsig_ + be_ + ctx_ | 765B |
+| rmemo_ + rsig_ + be_ + ctx_ | 771B |
 
 ## usage
 
@@ -70,3 +70,76 @@ solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte
 Since ctx-core is a general purpose context library, ctx-core's context functions (`be_` & `ctx__new`) are
 compatible with all of these libraries.
 ctx-core context functions are included in the rmemo package.
+
+## context
+
+rememo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
+The `ctx` is typically passed as an argument into the function being called. If the front end library supports 
+`Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be set on the `Context` component.
+
+A `ctx` is a Map or a nested array of maps.
+
+```ts
+export declare type MapCtx = Map<Be<unknown>|string|symbol, unknown>
+export interface NestedMapCtx extends Array<NestedMapCtx|MapCtx> {
+}
+export type Ctx = MapCtx|NestedMapCtx
+```
+
+Most of the time, a `MapCtx` is used. A `NestedMapCtx` can be used to compose `MapCtx` to support cases such as 
+domain-specific contexts & private contexts.
+
+### context example
+
+The above example works on the browser side, since there is only one instance `user_a$` & `admin_a$` to render the 
+UI. The server can handle multiple requests concurrency. Defining module level rmemos is not concurrency safe. 
+Concurrent requests will result in data from one request spilling over into another request.
+
+A `ctx` solves this issue by storing the rmemo instances in the `ctx`. Each request instantiates a `ctx` via `ctx_()`.
+
+ctx-core usese the `be_` function to define a memoized function to set a "slot" in the `ctx`.
+
+```ts
+import { be_, type Ctx, rsig_ } from 'rmemo'
+export const user_a$_ = be_(()=>
+	rsig_<User[]>([], user_a$=>
+		fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
+export function user__add(ctx:Ctx, user:User) {
+	user_a$_(ctx)([...user_a$_(ctx), user])
+}
+```
+
+```ts
+// store/admins.ts
+import { be_, rmemo_ } from 'rmemo'
+import { user_a$ } from './users.js'
+export const admin_a$_ = be_(ctx=>
+	rmemo_(()=>user_a$_(ctx)().filter(i=>i.isAdmin)))
+```
+
+Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo also provides some helper functions.
+
+```ts
+import { be_rsig_triple_, type Ctx, rsig_ } from 'rmemo'
+export const [
+	user_a$_,
+	user_a_,
+	user_a__set,
+] = be_rsig_triple_(()=>
+	rsig_<User[]>([], user_a$=>
+		fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
+export function user__add(ctx:Ctx, user:User) {
+	user_a__set(ctx, [...user_a_(ctx), user])
+}
+```
+
+```ts
+// store/admins.ts
+import { rmemo_, val__be_rmemo_pair_ } from 'rmemo'
+import { user_a_ } from './users.js'
+export const [
+	admin_a$_,
+	admin_a_,
+] = val__be_rmemo_pair_(ctx=>
+	user_a_(ctx).filter(i=>i.isAdmin))
+```

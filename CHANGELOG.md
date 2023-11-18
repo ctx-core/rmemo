@@ -1,5 +1,29 @@
 # rmemo
 
+## 0.4.0
+
+### Minor Changes
+
+- - rmemo_val_T
+- rmemo helper functions:
+
+  - be*rmemo_pair*
+  - be_rmemo_pair_T
+  - be*rsig_triple*
+  - be_rsig_triple_T
+  - val\__be_rmemo_pair_
+  - val\_\_be_rmemo_pair_T
+  - val\__be_rsig_triple_
+  - val\__be_rsig_triple_T
+    size-limit:
+    rmemo_ signal* be* ctx\_: + 12B
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@3.4.0
+
 ## 0.3.9
 
 ### Patch Changes
