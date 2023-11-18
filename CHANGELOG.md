@@ -1,5 +1,17 @@
 # rmemo
 
+## 0.3.8
+
+### Patch Changes
+
+- rmemo\_: remove extra return:
+
+      rmemo_: - 1B
+      rmemo_ signal_ be_ ctx_: - 6B
+
+- Updated dependencies
+  - ctx-core@3.3.3
+
 ## 0.3.7
 
 ### Patch Changes
