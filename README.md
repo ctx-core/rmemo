@@ -11,11 +11,11 @@ browser. This includes:
 - performance
 - integration with garbage collector
 
-| imports                        | size |
-|--------------------------------|:----:|
-| rmemo_                         | 356B |
-| rmemo_ + rsig_                 | 380B |
-| rmemo_ + rsig_ + be_ + ctx_    | 765B |
+| imports                     | size |
+|-----------------------------|:----:|
+| rmemo_                      | 356B |
+| rmemo_ + rsig_              | 380B |
+| rmemo_ + rsig_ + be_ + ctx_ | 765B |
 
 ## usage
 
@@ -62,7 +62,6 @@ solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte
 | **autosubscriptions**               |     ✅     |        ❌         |         ✅          |         ❌          |     ✅     |
 | **server side reactivity**          |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
 | **diamond dependencies**            |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
-| **independent from UI library**     |     ✅     |        ✅         | ❌ (next version?)  |         ❌          |     ❌     |
 | **independent from component tree** |     ✅     |        ✅         |  ❌ (next version)  |         ✅          |     ✅     |
 | **reactive async**                  |     ✅     | ❌ (next version) |         ✅          |         ❌          |     ❌     |
 | **terse api**                       |     ✅     |        ❌         |         ❌          |         ❌          |     ✅     |
