@@ -1,5 +1,17 @@
 # rmemo
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@4.0.0
+
 ## 0.4.0
 
 ### Minor Changes

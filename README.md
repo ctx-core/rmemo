@@ -73,6 +73,10 @@ ctx-core context functions are included in the rmemo package.
 
 ## context
 
+Contexts are useful for managing state & disposing of state with Garbage Collection. The current context can be
+filled with state. When it's time to dispose of the state, one can use Garbage Collection as long as all references
+to the context are removed.
+
 rememo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
 The `ctx` is typically passed as an argument into the function being called. If the front end library supports 
 `Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be set on the `Context` component.
@@ -105,7 +109,7 @@ export const user_a$_ = be_(()=>
 	rsig_<User[]>([], user_a$=>
 		fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
 export function user__add(ctx:Ctx, user:User) {
-	user_a$_(ctx)([...user_a$_(ctx), user])
+	user_a$_(ctx)([...user_a$_(ctx), user]) [[]]
 }
 ```
 
@@ -123,11 +127,10 @@ Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo also prov
 import { be_rsig_triple_, type Ctx, rsig_ } from 'rmemo'
 export const [
 	user_a$_,
-	user_a_,
+	user_a_
 	user_a__set,
-] = be_rsig_triple_(()=>
-	rsig_<User[]>([], user_a$=>
-		fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
+] = be_rsig_triple_(()=>[],
+  user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
 export function user__add(ctx:Ctx, user:User) {
 	user_a__set(ctx, [...user_a_(ctx), user])
 }
@@ -135,11 +138,14 @@ export function user__add(ctx:Ctx, user:User) {
 
 ```ts
 // store/admins.ts
-import { rmemo_, val__be_rmemo_pair_ } from 'rmemo'
+import { rmemo_, be_rmemo_pair_ } from 'rmemo'
 import { user_a_ } from './users.js'
+// uses the function argument to instantiate a rmemo
 export const [
 	admin_a$_,
 	admin_a_,
-] = val__be_rmemo_pair_(ctx=>
-	user_a_(ctx).filter(i=>i.isAdmin))
+] = be_rmemo_pair_(ctx=>user_a_(ctx).filter(i=>i.isAdmin))
 ```
+
+Adding contexts requires some additional code...particularly with the helper functions. The value of the trade off 
+is a simpler function to return the memoized value.  Instead of `user_a$_(ctx)()`, one can call `user_a_(ctx)`.
