@@ -1,5 +1,12 @@
 # rmemo
 
+## 0.4.2
+
+### Patch Changes
+
+- tsx: ^4.1.3 -> ^4.1.4
+- README: update sizes
+
 ## 0.4.1
 
 ### Patch Changes

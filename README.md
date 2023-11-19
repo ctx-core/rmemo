@@ -13,9 +13,9 @@ browser. This includes:
 
 | imports                     | size |
 |-----------------------------|:----:|
-| rmemo_                      | 356B |
-| rmemo_ + rsig_              | 380B |
-| rmemo_ + rsig_ + be_ + ctx_ | 771B |
+| rmemo_                      | 355B |
+| rmemo_ + rsig_              | 381B |
+| rmemo_ + rsig_ + be_ + ctx_ | 731B |
 
 ## usage
 
