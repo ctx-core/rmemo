@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.4.4
+
+### Patch Changes
+
+- be*rmemo_pair*,be*rsig_triple*: subscriber_a_THEN_config: fix: type
+- Updated dependencies
+  - ctx-core@4.1.1
+
 ## 0.4.3
 
 ### Patch Changes
