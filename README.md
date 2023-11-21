@@ -13,10 +13,10 @@ browser. This includes:
 
 | imports                                                                    | size  |
 |----------------------------------------------------------------------------|:-----:|
-| r_rmemo_                                                                   | 318 B |
-| r_rmemo_ + rw_rmemo_                                                       | 346 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                          | 512 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 590 B |
+| r_rmemo_                                                                   | 289 B |
+| r_rmemo_ + rw_rmemo_                                                       | 318 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                          | 475 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 557 B |
 
 ## usage
 
@@ -24,9 +24,9 @@ browser. This includes:
 // users.ts
 import { rw_rmemo_ } from 'rmemo'
 export const user_a$ = rw_rmemo_<User[]>([], user_a$=>
-	fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
+	fetch('https://an.api/users').then(ruoes=>res.json()).then(user_a$.set))
 export function user__add(user:User) {
-	user_a$([...user_a$(), user])
+	user_a$._ = [...user_a$._, user]
 	// also supports ._ getter & setter
 	// user_a$._ = [...user_a$._, user]
 }
@@ -40,7 +40,7 @@ export interface User {
 // admins.ts
 import { r_rmemo_ } from 'rmemo'
 import { user_a$ } from './users.js'
-export const admin_a$ = r_rmemo_(()=>user_a$().filter(i=>i.isAdmin))
+export const admin_a$ = r_rmemo_(()=>user_a$._.filter(i=>i.isAdmin))
 ```
 
 *Integrations with front-end frameworks pending...*
@@ -114,9 +114,9 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 import { be_, type Ctx, rw_rmemo_ } from 'rmemo'
 export const user_a$_ = be_(()=>
 	rw_rmemo_<User[]>([],
-		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
+		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$.set)))
 export function user__add(ctx:Ctx, user:User) {
-	user_a$_(ctx)([...user_a$_(ctx), user])
+	user_a$_(ctx)._ = [...user_a$_(ctx)._, user]
 }
 export interface User {
 	id:number
@@ -129,12 +129,12 @@ export interface User {
 import { be_, r_rmemo_ } from 'rmemo'
 import { user_a$_ } from './users.js'
 export const admin_a$_ = be_(ctx=>
-	r_rmemo_(()=>user_a$_(ctx)().filter(i=>i.isAdmin)))
+	r_rmemo_(()=>user_a$_(ctx)._.filter(i=>i.isAdmin)))
 ```
 
 ### context with helper functions example
 
-Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides some helper functions.
+Calling `user_a$_(ctx)._` & `admin_a$_(ctx)._` is a bit awkward. rmemo provides some helper functions.
 
 ```ts
 // users.ts
