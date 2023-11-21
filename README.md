@@ -11,11 +11,11 @@ browser. This includes:
 - performance
 - integration with garbage collector
 
-| imports                                                              | size  |
-|----------------------------------------------------------------------|:-----:|
-| r_rmemo_                                                             | 322 B |
-| r_rmemo_ + rw_rmemo_                                                 | 350 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                    | 509 B |
+| imports                                                                    | size  |
+|----------------------------------------------------------------------------|:-----:|
+| r_rmemo_                                                                   | 318 B |
+| r_rmemo_ + rw_rmemo_                                                       | 346 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                          | 512 B |
 | r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 590 B |
 
 ## usage

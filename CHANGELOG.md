@@ -1,5 +1,17 @@
 # rmemo
 
+## 0.5.1
+
+### Patch Changes
+
+- r*rmemo*: .\_r: fix: reference to r_rmemo instance:
+
+      r_rmemo_ signal_: - 4 B
+      r_rmemo_ signal_ be_ ctx_: + 3 B
+
+- Updated dependencies
+  - ctx-core@4.2.1
+
 ## 0.5.0
 
 ### Minor Changes
