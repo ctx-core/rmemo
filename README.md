@@ -11,19 +11,19 @@ browser. This includes:
 - performance
 - integration with garbage collector
 
-| imports                                                        | size  |
-|----------------------------------------------------------------|:-----:|
-| rmemo_                                                         | 344 B |
-| rmemo_ + rsig_                                                 | 372 B |
-| rmemo_ + rsig_ + be_ + ctx_                                    | 532 B |
-| rmemo_ + rsig_ + be_ + ctx_ + be_rmemo_pair_ + be_rsig_triple_ | 614 B |
+| imports                                                              | size  |
+|----------------------------------------------------------------------|:-----:|
+| r_rmemo_                                                             | 322 B |
+| r_rmemo_ + rw_rmemo_                                                 | 350 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                    | 509 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 590 B |
 
 ## usage
 
 ```ts
 // users.ts
-import { rsig_ } from 'rmemo'
-export const user_a$ = rsig_<User[]>([], user_a$=>
+import { rw_rmemo_ } from 'rmemo'
+export const user_a$ = rw_rmemo_<User[]>([], user_a$=>
 	fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
 export function user__add(user:User) {
 	user_a$([...user_a$(), user])
@@ -31,16 +31,16 @@ export function user__add(user:User) {
 	// user_a$._ = [...user_a$._, user]
 }
 export interface User {
-	id: number
-	name: string
+	id:number
+	name:string
 }
 ```
 
 ```ts
 // admins.ts
-import { rmemo_ } from 'rmemo'
+import { r_rmemo_ } from 'rmemo'
 import { user_a$ } from './users.js'
-export const admin_a$ = rmemo_(()=>user_a$().filter(i=>i.isAdmin))
+export const admin_a$ = r_rmemo_(()=>user_a$().filter(i=>i.isAdmin))
 ```
 
 *Integrations with front-end frameworks pending...*
@@ -57,8 +57,8 @@ created rmemo.
 
 ## how is rmemo different?
 
-rmemo is a small & focused library. It supports `rmemo_` (like nanostores `computed`, svelte `derived`,
-solidjs `createMemo`, & VanJS `derive`) & `rsig_` (like nanostore `atom`, svelte `writable`, solidjs
+rmemo is a small & focused library. It supports `r_rmemo_` (like nanostores `computed`, svelte `derived`,
+solidjs `createMemo`, & VanJS `derive`) & `rw_rmemo_` (like nanostore `atom`, svelte `writable`, solidjs
 `createSignal`, & VanJS `state`).
 
 |                                     | **rmemo** |  **nanostores**  |    **solidjs**     |    **sveltejs**    | **vanjs** |
@@ -80,10 +80,11 @@ ctx-core context functions are included in the rmemo package.
 ## context
 
 Contexts are useful for managing state & disposing of state with Garbage Collection. The current context can be
-filled with state. When it's time to dispose of the state, one can use Garbage Collection as long as all active 
+filled with state. When it's time to dispose of the state, one can use Garbage Collection as long as all active
 references to the `ctx` are removed.
 
-rememo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
+rememo includes functions to support contexts using ctx-core. ctx-core
+uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
 The `ctx` is typically passed as an argument into the function being called. If the front-end library supports
 `Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be assigned to the `Context` component.
 
@@ -110,25 +111,25 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 
 ```ts
 // users.ts
-import { be_, type Ctx, rsig_ } from 'rmemo'
+import { be_, type Ctx, rw_rmemo_ } from 'rmemo'
 export const user_a$_ = be_(()=>
-	rsig_<User[]>([],
-    user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
+	rw_rmemo_<User[]>([],
+		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$)))
 export function user__add(ctx:Ctx, user:User) {
 	user_a$_(ctx)([...user_a$_(ctx), user])
 }
 export interface User {
-	id: number
-  name: string
+	id:number
+	name:string
 }
 ```
 
 ```ts
 // admins.ts
-import { be_, rmemo_ } from 'rmemo'
+import { be_, r_rmemo_ } from 'rmemo'
 import { user_a$_ } from './users.js'
 export const admin_a$_ = be_(ctx=>
-	rmemo_(()=>user_a$_(ctx)().filter(i=>i.isAdmin)))
+	r_rmemo_(()=>user_a$_(ctx)().filter(i=>i.isAdmin)))
 ```
 
 ### context with helper functions example
@@ -137,34 +138,34 @@ Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides 
 
 ```ts
 // users.ts
-import { be_rsig_triple_, type Ctx } from 'rmemo'
+import { be_rw_rmemo_triple_, type Ctx } from 'rmemo'
 export const [
 	user_a$_,
 	user_a_
 	user_a__set,
-] = be_rsig_triple_<User[]>(()=>[],
+] = be_rw_rmemo_triple_<User[]>(()=>[],
 	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
 export function user__add(ctx:Ctx, user:User) {
 	user_a__set(ctx, [...user_a_(ctx), user])
 }
 export interface User {
-	id: number
-	name: string
+	id:number
+	name:string
 }
 ```
 
 ```ts
 // admins.ts
-import { be_rmemo_pair_ } from 'rmemo'
+import { be_r_rmemo_pair_ } from 'rmemo'
 import { type User, user_a_ } from './users.js'
 // uses the function argument to instantiate a rmemo
 export const [
 	admin_a$_,
 	admin_a_,
-] = be_rmemo_pair_(ctx=>user_a_(ctx).filter(i=>i.isAdmin))
+] = be_r_rmemo_pair_(ctx=>user_a_(ctx).filter(i=>i.isAdmin))
 ```
 
 ## Note about the Tag Vector Name Convention
 
-You may have noticed that underscore casing is used & the trailing `_` for factory functions. This is from the 
+You may have noticed that underscore casing is used & the trailing `_` for factory functions. This is from the
 development of the [Tag Vector](https://www.briantakita.me/posts/tag-vector-0-introduction) name convention.

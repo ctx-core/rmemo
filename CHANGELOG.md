@@ -1,5 +1,36 @@
 # rmemo
 
+## 0.5.0
+
+### Minor Changes
+
+- renames:
+
+      rmemo_→r_rmemo_
+      read_rmemo_T->r_rmemo_T
+      read_rmemo_o_T->r_rmemo_o_T
+      rsig_→rw_rmemo_
+      readwrite_rmemo_T→rw_rmemo_T
+      readwrite_rmemo_o_T→rw_rmemo_o_T
+      be_rmemo_pair_→be_r_rmemo_pair_
+      be_rmemo_pair_T→be_r_rmemo_pair_T
+      be_rsig_triple_→be_rw_rmemo_triple_
+      be_rsig_triple_T→be_rw_rmemo_triple_T
+
+  r*rmemo*: store value in .val instead of .\_a
+
+  size-limit:
+
+      r_rmemo_: - 22 B
+      r_rmemo_ signal_: - 22 B
+      r_rmemo_ signal_ be_ ctx_: - 23 B
+      r_rmemo_ signal_ be_ ctx_ be_rmemo_pair_ be_rsig_triple_: - 24 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.2.0
+
 ## 0.4.4
 
 ### Patch Changes
@@ -184,14 +215,14 @@
 
 ### Minor Changes
 
-- rmemo\_: returns read_rmemo_T<val_T>
-- rsig\_: returns readwrite_rmemo_T<val_T>
-- - readwrite_rmemo_T<val_T>,read_rmemo_T<val_T>
-- - read_rmemo_o_T
+- rmemo\_: returns r_rmemo_T<val_T>
+- rsig\_: returns rw_rmemo_T<val_T>
+- - rw_rmemo_T<val_T>,r_rmemo_T<val_T>
+- - read_r_rmemo_o_T
 
 ### Patch Changes
 
-- rmemo_o_T: - val
+- r_rmemo_o_T: - val
 - Updated dependencies
 - Updated dependencies
 - Updated dependencies
