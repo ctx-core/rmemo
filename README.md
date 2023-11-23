@@ -13,18 +13,18 @@ browser. This includes:
 
 | imports                                                                    | size  |
 |----------------------------------------------------------------------------|:-----:|
-| r_rmemo_                                                                   | 289 B |
+| r_rmemo_                                                                   | 298 B |
 | r_rmemo_ + rw_rmemo_                                                       | 318 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                          | 475 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 557 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                          | 478 B |
+| r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 571 B |
 
 ## usage
 
 ```ts
 // users.ts
-import { rw_rmemo_ } from 'rmemo'
+import { rw_rmemo_, set_ } from 'rmemo'
 export const user_a$ = rw_rmemo_<User[]>([], user_a$=>
-	fetch('https://an.api/users').then(ruoes=>res.json()).then(user_a$.set))
+	fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$)))
 export function user__add(user:User) {
 	user_a$._ = [...user_a$._, user]
 	// also supports ._ getter & setter
@@ -111,10 +111,10 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 
 ```ts
 // users.ts
-import { be_, type Ctx, rw_rmemo_ } from 'rmemo'
+import { be_, type Ctx, rw_rmemo_, set_ } from 'rmemo'
 export const user_a$_ = be_(()=>
 	rw_rmemo_<User[]>([],
-		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$.set)))
+		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$))))
 export function user__add(ctx:Ctx, user:User) {
 	user_a$_(ctx)._ = [...user_a$_(ctx)._, user]
 }
@@ -138,13 +138,13 @@ Calling `user_a$_(ctx)._` & `admin_a$_(ctx)._` is a bit awkward. rmemo provides 
 
 ```ts
 // users.ts
-import { be_rw_rmemo_triple_, type Ctx } from 'rmemo'
+import { be_rw_rmemo_triple_, type Ctx, set_ } from 'rmemo'
 export const [
 	user_a$_,
 	user_a_
 	user_a__set,
 ] = be_rw_rmemo_triple_<User[]>(()=>[],
-	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
+	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$)))
 export function user__add(ctx:Ctx, user:User) {
 	user_a__set(ctx, [...user_a_(ctx), user])
 }
