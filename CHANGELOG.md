@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.7.1
+
+### Patch Changes
+
+- tsx: ^4.3.0 -> ^4.4.0
+
 ## 0.7.0
 
 ### Minor Changes
