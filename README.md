@@ -13,10 +13,10 @@ browser. This includes:
 
 | imports                                                    | size  |
 |------------------------------------------------------------|:-----:|
-| memo_                                                      | 308 B |
-| memo_ + sig_                                               | 330 B |
-| memo_ + sig_ + be_ + ctx_                                  | 486 B |
-| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 575 B |
+| memo_                                                      | 343 B |
+| memo_ + sig_                                               | 366 B |
+| memo_ + sig_ + be_ + ctx_                                  | 522 B |
+| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 609 B |
 
 ## usage
 

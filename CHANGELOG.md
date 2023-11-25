@@ -1,5 +1,37 @@
 # rmemo
 
+## 0.8.0
+
+### Minor Changes
+
+- minor: domain integrity: convert memo* & sig* matches memo interface: remove val argument from function:
+
+      increases rmemo's bundle size & decreases downstream package (reljs) bundle size
+      r_rmemo_→memo_:
+      	.(): - val argument
+      	+ readonly ._
+      rw_rmemo_→sig_:
+      	.(): - val argument
+      	+ ._
+      rwr_rmemo_→memosig_
+      be_r_rmemo_pair_→be_memo_pair_
+      be_r_rmemo_pair_T→be_memo_pair_T
+      be_rw_rmemo_triple_→be_sig_triple_
+      be_rw_rmemo_triple_T→be_sig_triple_T
+
+  patch:
+
+      memo_: performance optimization: array instead to Set:
+      	memo.rmrs
+      	refresh.s
+      	refresh.S
+      memo_T: rmrs is not optional
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.5.0
+
 ## 0.7.1
 
 ### Patch Changes
