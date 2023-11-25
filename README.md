@@ -11,23 +11,24 @@ browser. This includes:
 - performance
 - integration with garbage collector
 
-| imports                                                                    | size  |
-|----------------------------------------------------------------------------|:-----:|
-| r_rmemo_                                                                   | 298 B |
-| r_rmemo_ + rw_rmemo_                                                       | 318 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_                                          | 478 B |
-| r_rmemo_ + rw_rmemo_ + be_ + ctx_ + be_r_rmemo_pair_ + be_rw_rmemo_triple_ | 571 B |
+| imports                                                    | size  |
+|------------------------------------------------------------|:-----:|
+| memo_                                                      | 308 B |
+| memo_ + sig_                                               | 330 B |
+| memo_ + sig_ + be_ + ctx_                                  | 486 B |
+| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 575 B |
 
 ## usage
 
 ```ts
 // users.ts
-import { rw_rmemo_, set_ } from 'rmemo'
-export const user_a$ = rw_rmemo_<User[]>([], user_a$=>
-	fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$)))
+import { sig_, set_ } from 'rmemo'
+export const user_a$ = sig_<User[]>([], user_a$=>
+	fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
 export function user__add(user:User) {
-	user_a$._ = [...user_a$._, user]
-	// also supports ._ getter & setter
+	user_a$([...user_a$(), user])
+	// psig_ & pmemo_ supports the ._ getter & setter
+	// const user_a$ = psig_(...)
 	// user_a$._ = [...user_a$._, user]
 }
 export interface User {
@@ -38,9 +39,9 @@ export interface User {
 
 ```ts
 // admins.ts
-import { r_rmemo_ } from 'rmemo'
+import { memo_ } from 'rmemo'
 import { user_a$ } from './users.js'
-export const admin_a$ = r_rmemo_(()=>user_a$._.filter(i=>i.isAdmin))
+export const admin_a$ = memo_(()=>user_a$().filter(i=>i.isAdmin))
 ```
 
 *Integrations with front-end frameworks pending...*
@@ -57,8 +58,8 @@ created rmemo.
 
 ## how is rmemo different?
 
-rmemo is a small & focused library. It supports `r_rmemo_` (like nanostores `computed`, svelte `derived`,
-solidjs `createMemo`, & VanJS `derive`) & `rw_rmemo_` (like nanostore `atom`, svelte `writable`, solidjs
+rmemo is a small & focused library. It supports `memo_` (like nanostores `computed`, svelte `derived`,
+solidjs `createMemo`, & VanJS `derive`) & `sig_` (like nanostore `atom`, svelte `writable`, solidjs
 `createSignal`, & VanJS `state`).
 
 |                                     | **rmemo** |  **nanostores**  |    **solidjs**     |    **sveltejs**    | **vanjs** |
@@ -111,12 +112,12 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 
 ```ts
 // users.ts
-import { be_, type Ctx, rw_rmemo_, set_ } from 'rmemo'
+import { be_, type Ctx, sig_, set_ } from 'rmemo'
 export const user_a$_ = be_(()=>
-	rw_rmemo_<User[]>([],
+	sig_<User[]>([],
 		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$))))
 export function user__add(ctx:Ctx, user:User) {
-	user_a$_(ctx)._ = [...user_a$_(ctx)._, user]
+	user_a$_(ctx)([...user_a$_(ctx)(), user])
 }
 export interface User {
 	id:number
@@ -126,24 +127,24 @@ export interface User {
 
 ```ts
 // admins.ts
-import { be_, r_rmemo_ } from 'rmemo'
+import { be_, memo_ } from 'rmemo'
 import { user_a$_ } from './users.js'
 export const admin_a$_ = be_(ctx=>
-	r_rmemo_(()=>user_a$_(ctx)._.filter(i=>i.isAdmin)))
+	memo_(()=>user_a$_(ctx)().filter(i=>i.isAdmin)))
 ```
 
 ### context with helper functions example
 
-Calling `user_a$_(ctx)._` & `admin_a$_(ctx)._` is a bit awkward. rmemo provides some helper functions.
+Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides some helper functions.
 
 ```ts
 // users.ts
-import { be_rw_rmemo_triple_, type Ctx, set_ } from 'rmemo'
+import { be_sig_triple_, type Ctx, set_ } from 'rmemo'
 export const [
 	user_a$_,
 	user_a_
 	user_a__set,
-] = be_rw_rmemo_triple_<User[]>(()=>[],
+] = be_sig_triple_<User[]>(()=>[],
 	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$)))
 export function user__add(ctx:Ctx, user:User) {
 	user_a__set(ctx, [...user_a_(ctx), user])
@@ -156,13 +157,13 @@ export interface User {
 
 ```ts
 // admins.ts
-import { be_r_rmemo_pair_ } from 'rmemo'
+import { be_memo_pair_ } from 'rmemo'
 import { type User, user_a_ } from './users.js'
 // uses the function argument to instantiate a rmemo
 export const [
 	admin_a$_,
 	admin_a_,
-] = be_r_rmemo_pair_(ctx=>user_a_(ctx).filter(i=>i.isAdmin))
+] = be_memo_pair_(ctx=>user_a_(ctx).filter(i=>i.isAdmin))
 ```
 
 ## Note about the Tag Vector Name Convention
