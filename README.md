@@ -14,9 +14,9 @@ browser. This includes:
 | imports                                                    | size  |
 |------------------------------------------------------------|:-----:|
 | memo_                                                      | 344 B |
-| memo_ + sig_                                               | 359 B |
+| memo_ + sig_                                               | 360 B |
 | memo_ + sig_ + be_ + ctx_                                  | 519 B |
-| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 602 B |
+| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 619 B |
 
 ## usage
 
