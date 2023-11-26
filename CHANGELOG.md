@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.9.3
+
+### Patch Changes
+
+- be*memo_pair*: subscriber receives a memosig argument: allows memosig.\_ = val in subscriber
+- Updated dependencies
+  - ctx-core@4.6.3
+
 ## 0.9.2
 
 ### Patch Changes
