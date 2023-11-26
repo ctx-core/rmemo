@@ -13,18 +13,18 @@ browser. This includes:
 
 | imports                                                    | size  |
 |------------------------------------------------------------|:-----:|
-| memo_                                                      | 343 B |
-| memo_ + sig_                                               | 366 B |
-| memo_ + sig_ + be_ + ctx_                                  | 522 B |
-| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 609 B |
+| memo_                                                      | 344 B |
+| memo_ + sig_                                               | 359 B |
+| memo_ + sig_ + be_ + ctx_                                  | 519 B |
+| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 602 B |
 
 ## usage
 
 ```ts
 // users.ts
-import { sig_, set_ } from 'rmemo'
+import { sig_ } from 'rmemo'
 export const user_a$ = sig_<User[]>([], user_a$=>
-	fetch('https://an.api/users').then(res=>res.json()).then(user_a$))
+	fetch('https://an.api/users').then(res=>res.json()).then(user_a=>user_a$._ = user_a))
 export function user__add(user:User) {
 	user_a$([...user_a$(), user])
 	// psig_ & pmemo_ supports the ._ getter & setter
@@ -112,10 +112,10 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 
 ```ts
 // users.ts
-import { be_, type Ctx, sig_, set_ } from 'rmemo'
+import { be_, type Ctx, sig_ } from 'rmemo'
 export const user_a$_ = be_(()=>
 	sig_<User[]>([],
-		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$))))
+		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a=>user_a$._ = user_a)))
 export function user__add(ctx:Ctx, user:User) {
 	user_a$_(ctx)([...user_a$_(ctx)(), user])
 }
@@ -139,13 +139,13 @@ Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides 
 
 ```ts
 // users.ts
-import { be_sig_triple_, type Ctx, set_ } from 'rmemo'
+import { be_sig_triple_, type Ctx } from 'rmemo'
 export const [
 	user_a$_,
 	user_a_
 	user_a__set,
 ] = be_sig_triple_<User[]>(()=>[],
-	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(set_(user_a$)))
+	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a=>user_a$._ = user_a))
 export function user__add(ctx:Ctx, user:User) {
 	user_a__set(ctx, [...user_a_(ctx), user])
 }

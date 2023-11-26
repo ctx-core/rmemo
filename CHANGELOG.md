@@ -1,5 +1,35 @@
 # rmemo
 
+## 0.9.0
+
+### Minor Changes
+
+- minor:
+
+      memo_T,sig_T:
+       .rmr→.r
+       .rmrs→.memor
+
+  patch:
+
+      rmemo_:
+      	undefined value: set .key = undefined to cache value: prevent refresh from being called again
+      	performance: lazily instantiate WeakRef
+      	size optimization: move memo.memor = after memo.f.* =
+      	rmemo_: if statements instead of &&/||
+
+  size-limit:
+
+      memo_: + 1 B
+      memo_ sig_: - 7 B
+      memo_ sig_ be_ ctx_: - 3 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 7 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.6.0
+
 ## 0.8.1
 
 ### Patch Changes
@@ -48,8 +78,8 @@
 
 ### Minor Changes
 
-- r_rmemo\_: - .go
-- - rwr*rmemo*: rw*rmemo* with a rmemo*def argument: same arguments as r_rmemo* but writable
+- memo\_: - .go
+- - rwr*rmemo*: rw*rmemo* with a rmemo*def argument: same arguments as memo* but writable
 
 ### Patch Changes
 
@@ -104,7 +134,7 @@
 
 ### Patch Changes
 
-- rmemo\_: inline r_rmemo.\_r
+- rmemo\_: inline memo.\_r
 - r*rmemo*: - cur_ref !== \_r check: redundant
 - Updated dependencies
 - Updated dependencies
@@ -116,7 +146,7 @@
 
 ### Patch Changes
 
-- r*rmemo*: .\_r: fix: reference to r_rmemo instance:
+- r*rmemo*: .\_r: fix: reference to memo instance:
 
       r_rmemo_ signal_: - 4 B
       r_rmemo_ signal_ be_ ctx_: + 3 B
