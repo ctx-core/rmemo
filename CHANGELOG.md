@@ -1,5 +1,19 @@
 # rmemo
 
+## 0.9.1
+
+### Patch Changes
+
+- fix: type inference:
+
+      be_memo_triple_
+      be_memo_triple_T
+      be_sig_triple_
+      be_sig_triple_T
+
+- Updated dependencies
+  - ctx-core@4.6.1
+
 ## 0.9.0
 
 ### Minor Changes
