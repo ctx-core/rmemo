@@ -1,5 +1,21 @@
 # rmemo
 
+## 0.11.1
+
+### Patch Changes
+
+- memo\_: fix: run all listeners when a listener is garbage collected
+
+  size-limit:
+
+      memo_: - 2 B
+      memo_ sig_: - 3 B
+      memo_ sig_ be_ ctx_: - 8 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 19 B
+
+- Updated dependencies
+  - ctx-core@4.8.1
+
 ## 0.11.0
 
 ### Minor Changes

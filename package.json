@@ -1,6 +1,6 @@
 {
 	"name": "rmemo",
-	"version": "0.11.0",
+	"version": "0.11.1",
 	"description": "ctx-core rmemo",
 	"keywords": [
 		"ctx-core",
@@ -36,7 +36,7 @@
 		"disable:test:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^4.8.0"
+		"ctx-core": "^4.8.1"
 	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^11.0.0",
@@ -58,28 +58,28 @@
 			"import": {
 				"": "{ memo_ }"
 			},
-			"limit": "344 B"
+			"limit": "342 B"
 		},
 		{
 			"name": "memo_ sig_",
 			"import": {
 				"": "{ sig_, memo_ }"
 			},
-			"limit": "360 B"
+			"limit": "357 B"
 		},
 		{
 			"name": "memo_ sig_ be_ ctx_",
 			"import": {
 				"": "{ sig_, memo_, be_, ctx_ }"
 			},
-			"limit": "519 B"
+			"limit": "511 B"
 		},
 		{
 			"name": "memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_",
 			"import": {
 				"": "{ sig_, memo_, be_, ctx_, be_memo_pair_, be_sig_triple_ }"
 			},
-			"limit": "619 B"
+			"limit": "607 B"
 		}
 	]
 }
