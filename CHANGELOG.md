@@ -1,5 +1,24 @@
 # rmemo
 
+## 0.12.0
+
+### Minor Changes
+
+- minor:
+
+      + be_memosig_triple_,be_memosig_triple_T
+      + sig argument in definition
+      	a memo's ._ setter is active
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 8 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.9.0
+
 ## 0.11.2
 
 ### Patch Changes
