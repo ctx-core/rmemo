@@ -24,7 +24,9 @@ browser. This includes:
 // users.ts
 import { sig_ } from 'rmemo'
 export const user_a$ = sig_<User[]>([], user_a$=>
-	fetch('https://an.api/users').then(res=>res.json()).then(user_a=>user_a$._ = user_a))
+	fetch('https://an.api/users')
+    .then(res=>res.json())
+    .then(user_a=>user_a$._ = user_a))
 export function user__add(user:User) {
 	user_a$([...user_a$(), user])
 	// psig_ & pmemo_ supports the ._ getter & setter
@@ -114,8 +116,10 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 // users.ts
 import { be_, type Ctx, sig_ } from 'rmemo'
 export const user_a$_ = be_(()=>
-	sig_<User[]>([],
-		user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a=>user_a$._ = user_a)))
+	sig_<User[]>([], user_a$=>
+    fetch('https://an.api/users')
+      .then(res=>res.json())
+      .then(user_a=>user_a$._ = user_a)))
 export function user__add(ctx:Ctx, user:User) {
 	user_a$_(ctx)([...user_a$_(ctx)(), user])
 }
@@ -130,7 +134,9 @@ export interface User {
 import { be_, memo_ } from 'rmemo'
 import { user_a$_ } from './users.js'
 export const admin_a$_ = be_(ctx=>
-	memo_(()=>user_a$_(ctx)().filter(i=>i.isAdmin)))
+	memo_(()=>
+    user_a$_(ctx)()
+      .filter(i=>i.isAdmin)))
 ```
 
 ### context with helper functions example
@@ -145,7 +151,10 @@ export const [
 	user_a_
 	user_a__set,
 ] = be_sig_triple_<User[]>(()=>[],
-	user_a$=>fetch('https://an.api/users').then(res=>res.json()).then(user_a=>user_a$._ = user_a))
+	user_a$=>
+    fetch('https://an.api/users')
+      .then(res=>res.json())
+      .then(user_a=>user_a$._ = user_a))
 export function user__add(ctx:Ctx, user:User) {
 	user_a__set(ctx, [...user_a_(ctx), user])
 }
@@ -163,7 +172,9 @@ import { type User, user_a_ } from './users.js'
 export const [
 	admin_a$_,
 	admin_a_,
-] = be_memo_pair_(ctx=>user_a_(ctx).filter(i=>i.isAdmin))
+] = be_memo_pair_(ctx=>
+  user_a_(ctx)
+    .filter(i=>i.isAdmin))
 ```
 
 ## Note about the Tag Vector Name Convention
