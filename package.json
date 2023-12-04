@@ -5,7 +5,12 @@
 	"keywords": [
 		"ctx-core",
 		"rmemo",
+		"reactive",
+		"state management",
+		"reactive state management",
+		"memo",
 		"reactive memo",
+		"signal",
 		"reactive signal"
 	],
 	"homepage": "https://github.com/ctx-core/rmemo#readme",
