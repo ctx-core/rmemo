@@ -24,18 +24,18 @@ browser. This includes:
 // users.ts
 import { sig_ } from 'rmemo'
 export const user_a$ = sig_<User[]>([], user_a$=>
-	fetch('https://an.api/users')
-		.then(res=>res.json())
-		.then(user_a=>user_a$._ = user_a))
+  fetch('https://an.api/users')
+    .then(res=>res.json())
+    .then(user_a=>user_a$._ = user_a))
 export function user__add(user:User) {
-	user_a$([...user_a$(), user])
-	// psig_ & pmemo_ supports the ._ getter & setter
-	// const user_a$ = psig_(...)
-	// user_a$._ = [...user_a$._, user]
+  user_a$([...user_a$(), user])
+  // psig_ & pmemo_ supports the ._ getter & setter
+  // const user_a$ = psig_(...)
+  // user_a$._ = [...user_a$._, user]
 }
 export interface User {
-	id:number
-	name:string
+  id:number
+  name:string
 }
 ```
 
@@ -116,16 +116,16 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 // users.ts
 import { be_, type Ctx, sig_ } from 'rmemo'
 export const user_a$_ = be_(()=>
-	sig_<User[]>([], user_a$=>
-		fetch('https://an.api/users')
-			.then(res=>res.json())
-			.then(user_a=>user_a$._ = user_a)))
+  sig_<User[]>([], user_a$=>
+    fetch('https://an.api/users')
+      .then(res=>res.json())
+      .then(user_a=>user_a$._ = user_a)))
 export function user__add(ctx:Ctx, user:User) {
-	user_a$_(ctx)([...user_a$_(ctx)(), user])
+  user_a$_(ctx)([...user_a$_(ctx)(), user])
 }
 export interface User {
-	id:number
-	name:string
+  id:number
+  name:string
 }
 ```
 
@@ -134,9 +134,9 @@ export interface User {
 import { be_, memo_ } from 'rmemo'
 import { user_a$_ } from './users.js'
 export const admin_a$_ = be_(ctx=>
-	memo_(()=>
-		user_a$_(ctx)()
-			.filter(i=>i.isAdmin)))
+  memo_(()=>
+    user_a$_(ctx)()
+      .filter(i=>i.isAdmin)))
 ```
 
 ### context with helper functions example
@@ -147,20 +147,20 @@ Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides 
 // users.ts
 import { be_sig_triple_, type Ctx } from 'rmemo'
 export const [
-	user_a$_,
-	user_a_
-	user_a__set,
+  user_a$_,
+  user_a_
+  user_a__set,
 ] = be_sig_triple_<User[]>(()=>[],
-	user_a$=>
-		fetch('https://an.api/users')
-			.then(res=>res.json())
-			.then(user_a=>user_a$._ = user_a))
+  user_a$=>
+    fetch('https://an.api/users')
+      .then(res=>res.json())
+      .then(user_a=>user_a$._ = user_a))
 export function user__add(ctx:Ctx, user:User) {
-	user_a__set(ctx, [...user_a_(ctx), user])
+  user_a__set(ctx, [...user_a_(ctx), user])
 }
 export interface User {
-	id:number
-	name:string
+  id:number
+  name:string
 }
 ```
 
@@ -170,11 +170,11 @@ import { be_memo_pair_ } from 'rmemo'
 import { type User, user_a_ } from './users.js'
 // uses the function argument to instantiate a rmemo
 export const [
-	admin_a$_,
-	admin_a_,
+  admin_a$_,
+  admin_a_,
 ] = be_memo_pair_(ctx=>
-	user_a_(ctx)
-		.filter(i=>i.isAdmin))
+  user_a_(ctx)
+    .filter(i=>i.isAdmin))
 ```
 
 ## Note about the Tag Vector Name Convention
