@@ -1,5 +1,25 @@
 # rmemo
 
+## 0.13.0
+
+### Minor Changes
+
+- minor:
+
+      + .on: Call the rmemo & enable updates from it's parents.
+      + .off: Disable updates from the rmemo's parents.
+
+  size-limit:
+
+      memo_: + 2 B
+      memo_ sig_: + 1 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 2 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.10.0
+
 ## 0.12.1
 
 ### Patch Changes
