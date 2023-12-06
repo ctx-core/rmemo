@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.13.1
+
+### Patch Changes
+
+- be*memosig_triple*: fix: import
+- Updated dependencies
+  - ctx-core@4.10.1
+
 ## 0.13.0
 
 ### Minor Changes
