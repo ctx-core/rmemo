@@ -1,5 +1,20 @@
 # rmemo
 
+## 0.14.0
+
+### Minor Changes
+
+- globalThis\__be_: arguments match be\_
+
+  size-limit:
+
+      be_ ctx_: - 2 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.12.0
+
 ## 0.13.6
 
 ### Patch Changes
