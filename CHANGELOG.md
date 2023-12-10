@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.13.6
+
+### Patch Changes
+
+- globalThis\__be_: fix: arguments type: + config?:be_config_T
+- Updated dependencies
+  - ctx-core@4.11.4
+
 ## 0.13.5
 
 ### Patch Changes
