@@ -1,5 +1,19 @@
 # rmemo
 
+## 0.13.5
+
+### Patch Changes
+
+- globalThis\__be_: fix: id argument + config argument
+
+  size-limit:
+
+      browser-only hydrate + helpers + rmemo + ctx: + 1 B
+
+- globalThis\__be_: fix: id argument + config argument
+- Updated dependencies
+  - ctx-core@4.11.3
+
 ## 0.13.4
 
 ### Patch Changes
