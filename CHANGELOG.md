@@ -1,5 +1,26 @@
 # rmemo
 
+## 0.15.0
+
+### Minor Changes
+
+- minor:
+
+      be_:
+      	store val into ctx as an id string or id as the be_...not both
+      	fix: be with an id can be transplied multiple times & use the same ctx val as another transpiled be with the same id
+      Be: id: string|Be
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_: - 12 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 9 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.13.0
+
 ## 0.14.0
 
 ### Minor Changes
