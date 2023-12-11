@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.15.2
+
+### Patch Changes
+
+- - globalThis\__be_memo_pair_ type declaration
+- Updated dependencies
+  - ctx-core@4.14.1
+
 ## 0.15.1
 
 ### Patch Changes
