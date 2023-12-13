@@ -1,5 +1,25 @@
 # rmemo
 
+## 0.16.0
+
+### Minor Changes
+
+- minor:
+
+      + lock_memosig_
+      + be_lock_memsig_
+      + be_lock_memsig_T
+
+  size-limit:
+
+      memo_ sig_: + 1 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 3 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@4.15.0
+
 ## 0.15.2
 
 ### Patch Changes
