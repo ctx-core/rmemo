@@ -1,5 +1,18 @@
 # rmemo
 
+## 0.17.0
+
+### Minor Changes
+
+- lock*memosig*: \_=: sets .lock = 1 to prevent the memo_def from running
+- - lock_memosig_T
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@4.17.0
+
 ## 0.16.1
 
 ### Patch Changes
