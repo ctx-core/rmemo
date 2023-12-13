@@ -1,5 +1,14 @@
 # rmemo
 
+## 0.17.1
+
+### Patch Changes
+
+- rmemo_T: fix: + |lock_memosig_T<val_T>
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@4.18.0
+
 ## 0.17.0
 
 ### Minor Changes
