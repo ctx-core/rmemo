@@ -1,5 +1,76 @@
 # rmemo
 
+## 0.18.0
+
+### Minor Changes
+
+- minor: + Ctx ns (namespace):
+
+      be_:
+      Be:
+      be_o_T:
+      be_config_T
+      Ctx:
+      	generics: + ns_T
+      	+ ns:ns_T
+      	- is_source_
+      be__has_:
+      be_map__find:
+      be__val_:
+      be_lock_memosig_triple_:
+      be_lock_memosig_triple_T:
+      be_memo_pair_:
+      be_memo_pair_T:
+      be_memosig_triple_:
+      be_memosig_triple_T:
+      be_sig_triple_:
+      be_sig_triple_T:
+      	generics: + ns_T
+      be: generics:
+      	+ ns_T
+      	+ ctx_T
+      ctx__set:
+      ctx__delete:
+      	generics:
+      		+ ns_T
+      		+ ctx_T
+      	arguments: + ns?:string
+      ctx__new:
+      ctx_:
+      	returns Ctx<''>
+      + BeMap
+      + BeMapO
+      + Ctx_wide_T
+      + Ctx_s_T
+      + Ctx_s_wide_T
+      + ctx__be_T
+      + ctx__get_T
+      + ctx__set_T
+      + ns_ctx__new
+      rmemo: bundle size optimizations: .includes instead of .indexOf
+      exports: + ./test
+      + Expect
+      + Equal
+      TupleExclude: fix: type error
+      + TupleMemberExtends
+      + TupleValues
+      + TupleConcat
+      + TupleToUnion
+      - be___T
+      - be__return_T
+
+  size-limit:
+
+      memo_: - 4 B
+      memo_ sig_: - 5 B
+      memo_ sig_ be_ ctx_: - 34 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 35 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.0.0
+
 ## 0.17.2
 
 ### Patch Changes
