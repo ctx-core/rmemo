@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.19.4
+
+### Patch Changes
+
+- rmemo: fix: imports
+- Updated dependencies
+  - ctx-core@5.2.3
+
 ## 0.19.3
 
 ### Patch Changes
