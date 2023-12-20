@@ -1,6 +1,6 @@
 {
 	"name": "rmemo",
-	"version": "0.18.3",
+	"version": "0.19.0",
 	"description": "ctx-core rmemo",
 	"keywords": [
 		"ctx-core",
@@ -77,14 +77,14 @@
 			"import": {
 				"": "{ sig_, memo_, be_, ctx_ }"
 			},
-			"limit": "460 B"
+			"limit": "456 B"
 		},
 		{
 			"name": "memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_",
 			"import": {
 				"": "{ sig_, memo_, be_, ctx_, be_memo_pair_, be_sig_triple_ }"
 			},
-			"limit": "553 B"
+			"limit": "549 B"
 		}
 	]
 }

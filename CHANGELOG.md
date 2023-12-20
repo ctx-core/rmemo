@@ -1,5 +1,80 @@
 # rmemo
 
+## 0.19.0
+
+### Minor Changes
+
+- minor:
+
+      exports:
+      	+ ./cli-args
+      	+ ./env
+      + ctx__clear
+      + ondelete_be_
+      + ondelete_be__val__new_T
+      be_: disable circular reference guard:
+      	can be enabled by running @ctx-core/preprocess with DEBUG env variable:
+      		see test: 'be_|circular dependency|DEBUG=1'
+      + CACHE_VERSION
+      	+ CACHE_VERSION$_
+      	+ CACHE_VERSION_
+      	+ CACHE_VERSION__set
+      + NODE_ENV
+      	+ NODE_ENV$_
+      	+ NODE_ENV_
+      	+ NODE_ENV__set
+      + VERSION
+      	+ VERSION$_
+      	+ VERSION_
+      	+ VERSION__set
+      + arg_a__pick
+      + default_arg_a_
+      + param_dfn_T
+      + dfn_flag_r_
+      + flag_a_
+      + flag_r_
+      + flag_r__pick
+      + flag_r_arg_a_
+      + flag_r_param_name_
+      + flag_regex
+      + import_meta_env_
+      + import_meta_env__ensure
+      + is_development
+      	+ is_development$_
+      	+ is_development_
+      + is_production
+      	+ is_production$_
+      	+ is_production_
+      + is_staging
+      	+ is_staging$_
+      	+ is_staging_
+      + missing_env__throw
+      + param_dfn_a_reducer
+      + param_dfn_split_regex
+      + param_name_r_param_val_a_
+      + param_r_
+      + parseFloat_andor_
+
+  size-limit:
+
+      be_: - 5 B
+      be_ ctx_: - 2 B
+      be_ ns_ctx_: - 1 B
+      be_ ctx_ ns_ctx_: - 1 B
+      memo_ sig_ be_ ctx_: - 4 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 4 B
+
+- minor:
+
+      + ctx__clear
+      + ondelete_be_
+      + ondelete_be__val__new_T
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_: - 4 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 4 B
+
 ## 0.18.3
 
 ### Patch Changes
