@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.19.8
+
+### Patch Changes
+
+- rmemo\_\_wait: fix: prevent early GC of internal memo
+- Updated dependencies
+  - ctx-core@5.4.1
+
 ## 0.19.7
 
 ### Patch Changes
