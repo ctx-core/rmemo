@@ -4,8 +4,7 @@
 		"module": "ESNext",
 		"moduleResolution": "nodenext",
 		"target": "ESNext",
-		"strict": true,
-		"skipLibCheck": true
+		"strict": true
 	},
 	"exclude": [
 		"node_modules"
