@@ -1,5 +1,24 @@
 # rmemo
 
+## 0.20.0
+
+### Minor Changes
+
+- - subscribe
+- - - rmemo\_\_subscribe
+
+  size-limit:
+
+      memo_ sig_: + 1 B
+      memo_ sig_ be_ ctx_: + 2 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: + 3 B
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.5.0
+
 ## 0.19.8
 
 ### Patch Changes
