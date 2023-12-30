@@ -1,5 +1,27 @@
 # rmemo
 
+## 0.22.0
+
+### Minor Changes
+
+- rmemo\_\_wait: arguments: + error?:Error
+- minor:
+
+      + relysjs__build_id:
+      	+ relysjs__build_id$_
+      	+ relysjs__build_id_
+      	+ relysjs__build_id__set
+      + relysjs__ready:
+      	+ relysjs__ready$_
+      	+ relysjs__ready_
+      + relysjs__ready__wait
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.7.0
+
 ## 0.21.1
 
 ### Patch Changes
@@ -54,7 +76,7 @@
 
 - ctx-core: ^5.3.1 -> ^5.4.0
 
-## 0.19.6
+## 0.19.6bu
 
 ### Patch Changes
 
