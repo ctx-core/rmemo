@@ -1,5 +1,21 @@
 # rmemo
 
+## 0.23.1
+
+### Patch Changes
+
+- be*memo_pair*:
+  be*sig_triple*:
+
+      fix: jsdoc type
+
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.9.0
+
 ## 0.23.0
 
 ### Minor Changes
