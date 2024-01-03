@@ -1,5 +1,34 @@
 # rmemo
 
+## 0.26.0
+
+### Minor Changes
+
+- minor: rmemo:
+
+      Cancel
+      nullish
+      nullish__none_
+      run
+      sleep
+      Timeout
+      tup
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_: - 1 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.13.0
+
+## 0.25.1
+
+### Patch Changes
+
+- ctx-core: ^5.11.0 -> ^5.12.0
+
 ## 0.25.0
 
 ### Minor Changes
