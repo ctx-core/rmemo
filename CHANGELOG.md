@@ -1,5 +1,24 @@
 # rmemo
 
+## 0.25.0
+
+### Minor Changes
+
+- minor:
+
+      + rmemo__on: aliased by on
+      + rmemo__off: aliased by off
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_: + 1 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 3 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.11.0
+
 ## 0.24.0
 
 ### Minor Changes
