@@ -15,7 +15,7 @@ browser. This includes:
 |------------------------------------------------------------|:-----:|
 | memo_                                                      | 355 B |
 | memo_ + sig_                                               | 377 B |
-| memo_ + sig_ + be_ + ctx_                                  | 477 B |
+| memo_ + sig_ + be_ + ctx_                                  | 478 B |
 | memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 580 B |
 
 ## usage

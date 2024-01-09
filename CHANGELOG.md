@@ -1,5 +1,17 @@
 # rmemo
 
+## 0.29.1
+
+### Patch Changes
+
+- lock*memosig*: .get: fix: return value
+- Updated dependencies
+  - ctx-core@5.16.1
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_: + 1 B
+
 ## 0.29.0
 
 ### Minor Changes
