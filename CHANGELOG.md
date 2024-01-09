@@ -1,5 +1,37 @@
 # rmemo
 
+## 0.29.0
+
+### Minor Changes
+
+- minor:
+
+      memo_T:
+      sig_T:
+      	+ .add<add_val_T>(add_def:(sig:sig_T<val_T>, prev_val:add_val_T|undefined)=>add_val_T):memo_T<val_T>
+      memo_:
+      sig_:
+      memosig_:
+      lock_memosig_:
+      	arguments: - ...subscriber_a
+      rmemo__subscribe→rmemo__add
+
+  patch:
+
+      rmemo__add: fix: add_def is not called until memo argument is called
+
+  size-limit:
+
+      memo_: + 20 B
+      memo_ sig_: + 24 B
+      memo_ sig_ be_ ctx_: + 17 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: + 27 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.16.0
+
 ## 0.28.0
 
 ### Minor Changes
