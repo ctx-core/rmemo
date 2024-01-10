@@ -1,11 +1,20 @@
 # rmemo
 
+## 0.29.2
+
+### Patch Changes
+
+- rmemo\_\_add: fix: arguments match the .add method
+- Updated dependencies
+  - ctx-core@5.16.2
+
 ## 0.29.1
 
 ### Patch Changes
 
 - lock*memosig*: .get: fix: return value
 - Updated dependencies
+
   - ctx-core@5.16.1
 
   size-limit:
