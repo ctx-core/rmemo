@@ -1,5 +1,38 @@
 # rmemo
 
+## 0.30.0
+
+### Minor Changes
+
+- minor:
+
+      memo_:
+      	rename internals:
+      		.r→.s
+      		.memor→.t
+      		.f.S→.f.t
+      	+ .memo_: support limiting dependent library bundle sizes by not requiring the rmemo to be imported
+      	.add: no longer wraps rmemo_add_def argument with a memo_: user can return a memo from the rmemo_add_def function
+      + rmemo__off__add
+      rmemo__on: arguments: + off_fn?:(rmemo:rmemo_T<val_T>)=>unknown
+      rmemo__on:
+      rmemo__off:
+      	+ <val_T> generic type
+      - rmemo__add_T
+      rmemo_add_def_T: arguments: - old_val
+
+  size-limit:
+
+      memo_: - 3 B
+      memo_ sig_: - 7 B
+      memo_ sig_ be_ ctx_: - 7 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 10 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.17.0
+
 ## 0.29.2
 
 ### Patch Changes
