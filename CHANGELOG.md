@@ -1,5 +1,24 @@
 # rmemo
 
+## 0.31.0
+
+### Minor Changes
+
+- minor:
+
+      + memo__bind:
+      	+ _
+      	+ bind
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: + 10 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.18.0
+
 ## 0.30.1
 
 ### Patch Changes
