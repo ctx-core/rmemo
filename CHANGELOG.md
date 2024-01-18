@@ -1,5 +1,28 @@
 # rmemo
 
+## 0.34.0
+
+### Minor Changes
+
+- minor:
+
+      + ns_be_
+      + id_be_
+      + ns_id_be_
+      be_: ns_T generic type specified: config:be_config_T is required
+      be_memo_pair_: config?:be_config_T<ns_T> argument: fix: generic type
+
+  size-limit:
+
+      be_ ns_ctx_: + 1 B
+      be_ ctx_ ns_ctx_: + 1 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 8 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.24.0
+
 ## 0.33.0
 
 ### Minor Changes
