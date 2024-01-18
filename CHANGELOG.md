@@ -1,5 +1,19 @@
 # rmemo
 
+## 0.32.1
+
+### Patch Changes
+
+- fix: type errors:
+
+      be_lock_memosig_triple
+      be_memo_pair
+      be_memosig_triple
+      be_sig_triple
+
+- Updated dependencies
+  - ctx-core@5.22.1
+
 ## 0.32.0
 
 ### Minor Changes
