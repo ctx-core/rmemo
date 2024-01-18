@@ -1,5 +1,36 @@
 # rmemo
 
+## 0.35.0
+
+### Minor Changes
+
+- minor:
+
+      + ns_be_sig_triple_
+      + id_be_sig_triple_
+      + ns_id_be_sig_triple_
+      + ns_be_memo_pair_
+      + id_be_memo_pair_
+      + ns_id_be_memo_pair_
+      + ns_be_memosig_triple_
+      + id_be_memosig_triple_
+      + ns_id_be_memosig_triple_
+      + ns_be_lock_memosig_triple_
+      + id_be_lock_memosig_triple_
+      + ns_id_be_lock_memosig_triple_
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: + 2 B
+
+- - be_config_arg_a_T
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.25.0
+
 ## 0.34.0
 
 ### Minor Changes
