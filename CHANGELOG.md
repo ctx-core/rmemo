@@ -1,5 +1,28 @@
 # rmemo
 
+## 0.35.2
+
+### Patch Changes
+
+- val\_\_new: + rmemo argument:
+
+      be_sig_triple_
+      ns_be_sig_triple_
+      id_be_sig_triple_
+      ns_id_be_sig_triple_
+      ns_be_memo_pair_
+      id_be_memo_pair_
+      ns_id_be_memo_pair_
+      ns_be_memosig_triple_
+      id_be_memosig_triple_
+      ns_id_be_memosig_triple_
+      ns_be_lock_memosig_triple_
+      id_be_lock_memosig_triple_
+      ns_id_be_lock_memosig_triple_
+
+- Updated dependencies
+  - ctx-core@5.25.2
+
 ## 0.35.1
 
 ### Patch Changes
