@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.35.3
+
+### Patch Changes
+
+- memo_T: fix: readonly a?:rmemo_a_T
+- Updated dependencies
+  - ctx-core@5.25.3
+
 ## 0.35.2
 
 ### Patch Changes
