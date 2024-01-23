@@ -1,5 +1,16 @@
 # rmemo
 
+## 0.36.0
+
+### Minor Changes
+
+- ./rmemo: + run*or_val*
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.28.0
+
 ## 0.35.8
 
 ### Patch Changes
