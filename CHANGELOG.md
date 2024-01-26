@@ -1,5 +1,20 @@
 # rmemo
 
+## 0.38.0
+
+### Minor Changes
+
+- ./rmemo: + rmemo\_\_unset: delete rmemo.val
+
+  size-limit:
+
+      memo_ sig_ be_ ctx_: - 1 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.31.0
+
 ## 0.37.0
 
 ### Minor Changes
