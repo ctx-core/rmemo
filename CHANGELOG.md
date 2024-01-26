@@ -1,5 +1,16 @@
 # rmemo
 
+## 0.37.0
+
+### Minor Changes
+
+- - memo\_\_bind_T<A extends unknown[], R, E = unknown>
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.30.0
+
 ## 0.36.2
 
 ### Patch Changes
