@@ -1,5 +1,19 @@
 # rmemo
 
+## 0.39.0
+
+### Minor Changes
+
+- Cancel: name: 'Cancel'
+- - promise\_\_cancel
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.33.0
+
 ## 0.38.4
 
 ### Patch Changes
