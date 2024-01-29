@@ -1,5 +1,17 @@
 # rmemo
 
+## 0.40.0
+
+### Minor Changes
+
+- - ctx\_\_get
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.35.0
+
 ## 0.39.1
 
 ### Patch Changes
