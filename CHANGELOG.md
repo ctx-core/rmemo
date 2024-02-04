@@ -1,5 +1,16 @@
 # rmemo
 
+## 0.42.0
+
+### Minor Changes
+
+- - calling: calls & returns argument function
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@5.38.0
+
 ## 0.41.0
 
 ### Minor Changes
