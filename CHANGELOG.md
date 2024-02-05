@@ -1,5 +1,17 @@
 # rmemo
 
+## 0.42.1
+
+### Patch Changes
+
+- fix: handle non-promise objects: noop:
+
+      promise__cancel
+      promise__cancel__throw
+
+- Updated dependencies
+  - ctx-core@5.38.1
+
 ## 0.42.0
 
 ### Minor Changes
