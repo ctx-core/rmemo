@@ -1,5 +1,21 @@
 # rmemo
 
+## 0.43.0
+
+### Minor Changes
+
+- type rename:
+
+      Ctx→ctx_T
+      Ctx_wide_T→wide_ctx_T
+      Ctx_s_T→ctx_s_T
+      Ctx_s_wide_T→wide_ctx_s_T
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@6.0.0
+
 ## 0.42.2
 
 ### Patch Changes
