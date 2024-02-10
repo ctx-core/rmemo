@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.44.2
+
+### Patch Changes
+
+- tsx: ^4.7.0 -> ^4.7.1
+- Updated dependencies
+  - ctx-core@6.1.2
+
 ## 0.44.1
 
 ### Patch Changes
