@@ -1,5 +1,16 @@
 # rmemo
 
+## 0.45.0
+
+### Minor Changes
+
+- timeout_promise: + handle Infinity ms argument: remove timeout from ∋ Promise.race
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@6.2.0
+
 ## 0.44.3
 
 ### Patch Changes
