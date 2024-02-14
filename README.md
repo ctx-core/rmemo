@@ -17,11 +17,21 @@ rmemo is a tiny no-fluff state management library using reactive memos & reactiv
 | memo_ + sig_ + be_ + ctx_                                  | 499 B |
 | memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 589 B |
 
+## installation
+
+```shell
+npm i ctx-core
+# or
+npm i rmemo
+```
+
+rmemo is part of the ctx-core package so installing the ctx-core package & using the `ctx-core/rmemo` export will enable usage of rmemo. There is also a standalone `rmemo` package which exports `ctx-core/rmemo`
+
 ## usage
 
 ```ts
 // users.ts
-import { sig_ } from 'rmemo'
+import { sig_ } from 'rmemo' // or 'ctx-core/rmemo'
 export const user_a$ = sig_<User[]>(
 	[]
 ).add(user_a$=>
@@ -39,18 +49,14 @@ export interface User {
 
 ```ts
 // admins.ts
-import { memo_ } from 'rmemo'
+import { memo_ } from 'rmemo' // or 'ctx-core/rmemo'
 import { user_a$ } from './users.js'
 export const admin_a$ = memo_(()=>user_a$().filter(i=>i.isAdmin))
 ```
 
-*Integrations with front-end frameworks pending...*
+## integration with relementjs
 
-## motivation
-
-I'm a fan of reactive state management solutions provided by nanostores, solidjs, svelte, & vanJS. I wanted one of these solutions to be a general solution that I can use on the browser & server, with web UIs & domain libraries. Each of these projects are focused on their particular objectives. I found they were unable to support my use cases in one way or another.
-
-Between an impasse in adding autosubscriptions to nanostores & adding server-side reactive support to vanJS, I created rmemo.
+rmemo provides optional reactivity to [relementjs](https://github.com/relementjs/relementjs). To use rmemo with  
 
 ## how is rmemo different?
 
@@ -156,3 +162,9 @@ export const [
 ## Note about the Tag Vector Name Convention
 
 You may have noticed that underscore casing is used & the trailing `_` for factory functions. This is from the development of the [Tag Vector](https://www.briantakita.me/posts/tag-vector-0-introduction) name convention.
+
+## motivation
+
+I'm a fan of reactive state management solutions provided by nanostores, solidjs, svelte, & vanJS. I wanted one of these solutions to be a general solution that I can use on the browser & server, with web UIs & domain libraries. Each of these projects are focused on their particular objectives. I found they were unable to support my use cases in one way or another.
+
+Between an impasse in adding autosubscriptions to nanostores & adding server-side reactive support to vanJS, I created rmemo.
