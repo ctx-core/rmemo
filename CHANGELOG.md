@@ -1,5 +1,18 @@
 # rmemo
 
+## 0.46.0
+
+### Minor Changes
+
+- - rmemolike_T
+
+  rmemo\_\_wait: argument: rmemolike_T<unknown> instead of rmemo_T<unknown>
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@6.3.0
+
 ## 0.45.2
 
 ### Patch Changes
