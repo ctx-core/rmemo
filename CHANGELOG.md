@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.46.3
+
+### Patch Changes
+
+- ctx-core: ^6.4.2 -> ^6.4.3
+
 ## 0.46.2
 
 ### Patch Changes
