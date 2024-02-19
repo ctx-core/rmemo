@@ -53,8 +53,7 @@
 		"uvu": "^0.5.6"
 	},
 	"publishConfig": {
-		"access": "public",
-		"cache": "~/.npm"
+		"access": "public"
 	},
 	"sideEffects": false,
 	"size-limit": [
