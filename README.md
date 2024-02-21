@@ -1,3 +1,4 @@
+[//]: @formatter:off
 # rmemo (Reactive Memo)
 
 rmemo is a tiny no-fluff state management library using reactive memos & reactive signals for the server & browser. This includes:
@@ -32,12 +33,11 @@ rmemo is part of the ctx-core package so installing the ctx-core package & using
 ```ts
 // users.ts
 import { sig_ } from 'rmemo' // or 'ctx-core/rmemo'
-export const user_a$ = sig_<User[]>(
-	[]
-).add(user_a$=>
-	fetch('https://my.api/users')
-		.then(res=>res.json())
-		.then(user_a=>user_a$._ = user_a))
+export const user_a$ = sig_<User[]>([])
+  .add(user_a$=>
+    fetch('https://my.api/users')
+      .then(res=>res.json())
+      .then(user_a=>user_a$._ = user_a))
 export function user__add(user:User) {
   user_a$._ = [...user_a$(), user]
 }
@@ -95,12 +95,11 @@ ctx-core usese the `be_` function to define a memoized function to set a "slot" 
 // users.ts
 import { be_, type ctx_T, sig_ } from 'rmemo'
 export const user_a$_ = be_(()=>
-  sig_<User[]>(
-		[]
-  ).add(user_a$=>
-		fetch('https://an.api/users')
-			.then(res=>res.json())
-			.then(user_a=>user_a$._ = user_a)))
+  sig_<User[]>([])
+    .add(user_a$=>
+      fetch('https://an.api/users')
+        .then(res=>res.json())
+        .then(user_a=>user_a$._ = user_a)))
 export function user__add(ctx:ctx_T, user:User) {
   user_a$_(ctx)([...user_a$_(ctx)(), user])
 }
@@ -128,21 +127,21 @@ Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides 
 // users.ts
 import { be_sig_triple_, type ctx_T } from 'rmemo'
 export const [
-	user_a$_,
-	user_a_
-	user_a__set,
+  user_a$_,
+  user_a_
+  user_a__set,
 ] = be_sig_triple_<User[]>(
-	()=>[]
+  ()=>[]
 ).add((ctx, user_a$)=>
-	fetch('https://an.api/users')
-		.then(res=>res.json())
-		.then(user_a=>user_a$._ = user_a))
+  fetch('https://an.api/users')
+    .then(res=>res.json())
+    .then(user_a=>user_a$._ = user_a))
 export function user__add(ctx:ctx_T, user:User) {
-	user_a__set(ctx, [...user_a_(ctx), user])
+  user_a__set(ctx, [...user_a_(ctx), user])
 }
 export interface User {
-	id:number
-	name:string
+  id:number
+  name:string
 }
 ```
 
