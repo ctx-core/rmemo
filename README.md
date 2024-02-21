@@ -9,7 +9,7 @@ rmemo is a tiny no-fluff state management library using reactive memos & reactiv
 * async support
 * a terse & focused api
 * performance
-* integration with garbage collector
+* integration with garbage collector via WeakRef
 
 | imports                                                    | size  |
 |------------------------------------------------------------|:-----:|
