@@ -1,4 +1,3 @@
-[//]: @formatter:off
 # rmemo (Reactive Memo)
 
 rmemo is a tiny no-fluff state management library using reactive memos & reactive signals for the server & browser. This includes:
@@ -20,16 +19,19 @@ rmemo is a tiny no-fluff state management library using reactive memos & reactiv
 
 ## installation
 
+[//]: @formatter:off
 ```shell
 npm i ctx-core
 # or
 npm i rmemo
 ```
+[//]: @formatter:on
 
 rmemo is part of the ctx-core package so installing the ctx-core package & using the `ctx-core/rmemo` export will enable usage of rmemo. There is also a standalone `rmemo` package which exports `ctx-core/rmemo`
 
 ## usage
 
+[//]: @formatter:off
 ```ts
 // users.ts
 import { sig_ } from 'rmemo' // or 'ctx-core/rmemo'
@@ -46,42 +48,51 @@ export interface User {
   name:string
 }
 ```
+[//]: @formatter:on
 
+[//]: @formatter:off
 ```ts
 // admins.ts
 import { memo_ } from 'rmemo' // or 'ctx-core/rmemo'
 import { user_a$ } from './users.js'
 export const admin_a$ = memo_(()=>user_a$().filter(i=>i.isAdmin))
 ```
+[//]: @formatter:on
 
 ## integration with relementjs
 
-rmemo provides optional reactivity to [relementjs](https://github.com/relementjs/relementjs). To use rmemo with  
+rmemo provides optional opt-in reactivity to [relementjs](https://github.com/relementjs/relementjs). Elements, Element attributes + Element props can be reactively rendered by passing in a `memo_` on `sig_` instance. 
 
 ## how is rmemo different?
 
 rmemo is a small & focused library. It supports `memo_` (like nanostores `computed`, svelte `derived`, solidjs `createMemo`, & VanJS `derive`) & `sig_` (like nanostore `atom`, svelte `writable`, solidjs `createSignal`, & VanJS `state`).
 
-|                                     | **rmemo** |  **nanostores**  |    **solidjs**     |    **sveltejs**    | **vanjs** |
-|-------------------------------------|:---------:|:----------------:|:------------------:|:------------------:|:---------:|
-| **small payload**                   |     ✅     |        ✅         |         ✅          |         ✅          |     ✅     |
-| **performant**                      |     ✅     |        ✅         |         ✅          |         ✅          |     ✅     |
-| **autosubscriptions**               |     ✅     |        ❌         |         ✅          |         ❌          |     ✅     |
-| **server side reactivity**          |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
-| **diamond dependencies**            |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
-| **independent from component tree** |     ✅     |        ✅         |  ❌ (next version)  |         ✅          |     ✅     |
-| **reactive async**                  |     ✅     | ❌ (next version) |         ✅          |         ✅          |     ❌     |
-| **terse api**                       |     ✅     |        ❌         |         ❌          |         ❌          |     ✅     |
-| **contexts**                        |     ✅     | ❌ (next version) | ✅ (component tree) | ✅ (component tree) |     ❌     |
+|                                                       | **rmemo** |  **nanostores**  |    **solidjs**     |    **sveltejs**    | **vanjs** |
+|-------------------------------------------------------|:---------:|:----------------:|:------------------:|:------------------:|:---------:|
+| **small payload**                                     |     ✅     |        ✅         |         ✅          |         ✅          |     ✅     |
+| **performant**                                        |     ✅     |        ✅         |         ✅          |         ✅          |     ✅     |
+| **autosubscriptions**                                 |     ✅     |        ❌         |         ✅          |         ❌          |     ✅     |
+| **server side reactivity**                            |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
+| **diamond dependencies**                              |     ✅     |        ✅         |         ✅          |         ✅          |     ❌     |
+| **independent from component tree**                   |     ✅     |        ✅         |  ❌ (next version)  |         ✅          |     ✅     |
+| **reactive async**                                    |     ✅     | ❌ (next version) |         ✅          |         ✅          |     ❌     |
+| **terse api**                                         |     ✅     |        ❌         |         ❌          |         ❌          |     ✅     |
+| **contexts**                                          |     ✅     | ❌ (next version) | ✅ (component tree) | ✅ (component tree) |     ❌     |
+| **Automatic Garbage Collection of derived reactives** |     ✅     | ❌  | ✅ | ❌ |     ✅     |
 
 Since ctx-core is a general purpose context library, ctx-core's context functions (`be_` & `ctx__new`) are compatible with all of these libraries. ctx-core context functions are included in the rmemo package.
+
+## advanced rmemos
+
+`memosig_`: A memo signal or a settable memo. If a memosig is programatically set & the parent rmemo changes, the memosig value resets.
+
+`lock_memosig_`: Also a memo signal or a settable memo. If the memosig is programatically set, the lock_memosig locks...meaning if the parent rmemo changes, the value remains locked. 
 
 ## context
 
 Contexts are useful for managing state & disposing of state with Garbage Collection. The current context can be filled with state. When it's time to dispose of the state, one can use Garbage Collection as long as all active references to the `ctx` are removed.
 
 rememo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection). The `ctx` is typically passed as an argument into the function being called. If the front-end library supports `Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be assigned to the `Context` component.
-
 
 ### context example
 
@@ -91,6 +102,7 @@ A `ctx` solves this issue by storing the rmemo instances in the `ctx`. Each requ
 
 ctx-core usese the `be_` function to define a memoized function to set a "slot" in the `ctx`.
 
+[//]: @formatter:off
 ```ts
 // users.ts
 import { be_, type ctx_T, sig_ } from 'rmemo'
@@ -108,7 +120,9 @@ export interface User {
   name:string
 }
 ```
+[//]: @formatter:on
 
+[//]: @formatter:off
 ```ts
 // admins.ts
 import { be_, memo_ } from 'rmemo'
@@ -118,11 +132,13 @@ export const admin_a$_ = be_(ctx=>
     user_a$_(ctx)()
       .filter(i=>i.isAdmin)))
 ```
+[//]: @formatter:on
 
 ### context with helper functions example
 
 Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides some helper functions.
 
+[//]: @formatter:off
 ```ts
 // users.ts
 import { be_sig_triple_, type ctx_T } from 'rmemo'
@@ -144,7 +160,9 @@ export interface User {
   name:string
 }
 ```
+[//]: @formatter:on
 
+[//]: @formatter:off
 ```ts
 // admins.ts
 import { be_memo_pair_ } from 'rmemo'
@@ -157,6 +175,7 @@ export const [
   user_a_(ctx)
     .filter(i=>i.isAdmin))
 ```
+[//]: @formatter:on
 
 ## Note about the Tag Vector Name Convention
 
