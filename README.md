@@ -61,7 +61,7 @@ export const admin_a$ = memo_(()=>user_a$().filter(i=>i.isAdmin))
 
 ## integration with relementjs
 
-rmemo provides optional opt-in reactivity to [relementjs](https://github.com/relementjs/relementjs). Elements, Element attributes + Element props can be reactively rendered by passing in a `memo_` on `sig_` instance. 
+rmemo provides optional opt-in reactivity to [relementjs](https://github.com/relementjs/relementjs). Elements, Element attributes + Element props can be reactively rendered by passing in a `memo_` on `sig_` instance.
 
 ## how is rmemo different?
 
@@ -84,9 +84,31 @@ Since ctx-core is a general purpose context library, ctx-core's context function
 
 ## advanced rmemos
 
-`memosig_`: A memo signal or a settable memo. If a memosig is programatically set & the parent rmemo changes, the memosig value resets.
-
-`lock_memosig_`: Also a memo signal or a settable memo. If the memosig is programatically set, the lock_memosig locks...meaning if the parent rmemo changes, the value remains locked. 
+| function                        | description                                                                                                                                                           |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `.add(cb)`                      | Call the given cb when the rmemo is loaded by being called. Can be used to call async functions. If a rmemo is returned, the rmemo will be activated.                 |
+| `memosig_`                      | A memo signal or a settable memo. If a memosig is programatically set & the parent rmemo changes, the memosig value resets.                                           |
+| `lock_memosig_`                 | Also a memo signal or a settable memo. If the memosig is programatically set, the lock_memosig locks...meaning if the parent rmemo changes, the value remains locked. |
+| `be_sig_triple_`                | Returns an array of 3 context be_ functions. sig object getter, value getter, & value setter                                                                          |
+| `id_be_sig_triple_`             | Same as `be_sig_triple_` + sets the id of the `be` function                                                                                                           |
+| `ns_id_be_sig_triple_`          | Same as `be_sig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                    |
+| `ns_be_sig_triple_`             | Same as `be_sig_triple_` & operates on the given ctx namespace.                                                                                                       |
+| `be_memo_pair_`                 | Returns an array of 2 context be_ functions. memo object getter & value getter.                                                                                       |
+| `id_be_memo_pair_`              | Same as `be_memo_pair_` + sets the id of the `be` function                                                                                                            |
+| `ns_id_be_memo_pair_`           | Same as `be_memo_pair_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                     |
+| `ns_be_memo_pair_`              | Same as `be_memo_pair_` & operates on the given ctx namespace.                                                                                                        |
+| `be_memosig_triple_`            | Returns an array of 3 context be_ functions. memosig object getter, value getter, & value setter                                                                      |
+| `id_be_memosig_triple_`         | Same as `be_memosig_triple_` + sets the id of the `be` function                                                                                                       |
+| `ns_id_be_memosig_triple_`      | Same as `be_memosig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                |
+| `ns_be_memosig_triple_`         | Same as `be_memosig_triple_` & operates on the given ctx namespace.                                                                                                   |
+| `be_lock_memosig_triple_`       | Returns an array of 3 context be_ functions. lock_memosig object getter, value getter, & value setter                                                                 |
+| `id_be_lock_memosig_triple_`    | Same as `be_lock_memosig_triple_` + sets the id of the `be` function                                                                                                  |
+| `ns_id_be_lock_memosig_triple_` | Same as `be_lock_memosig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                           |
+| `ns_be_lock_memosig_triple_`    | Same as `be_lock_memosig_triple_` & operates on the given ctx namespace.                                                                                              |
+| `rmemo__wait`                   | Wait for rmemo to match given condition with a timeout                                                                                                                |
+| `rmemo__off`                    | Turn off a rmemo & remove references to parent rmemos. Note that if the rmemo is weakly held by the parent rmemo using `WeakRef`.                                     |
+| `rmemo__on`                     | Turn on a rmemo, readding the rmemo to be weakly held by parent rmemos.                                                                                               |
+| `rmemo__unset`                  | Unset the rmemo. The rmemo be refreshed the next time the rmemo is called.                                                                                            |
 
 ## context
 
