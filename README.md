@@ -15,7 +15,7 @@ rmemo is a tiny no-fluff state management library using reactive memos & reactiv
 |------------------------------------------------------------|:-----:|
 | memo_                                                      | 372 B |
 | memo_ + sig_                                               | 391 B |
-| memo_ + sig_ + be_ + ctx_                                  | 499 B |
+| memo_ + sig_ + be_ + ctx_                                  | 496 B |
 | memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 589 B |
 
 ## installation

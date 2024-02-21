@@ -1,5 +1,16 @@
 # rmemo
 
+## 0.46.4
+
+### Patch Changes
+
+- size-limit:
+
+      memo_ sig_ be_ ctx_: - 3 B
+
+- Updated dependencies
+  - ctx-core@6.4.4
+
 ## 0.46.3
 
 ### Patch Changes
