@@ -114,7 +114,7 @@ Since ctx-core is a general purpose context library, ctx-core's context function
 
 Contexts are useful for managing state & disposing of state with Garbage Collection. The current context can be filled with state. When it's time to dispose of the state, one can use Garbage Collection as long as all active references to the `ctx` are removed.
 
-rememo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection). The `ctx` is typically passed as an argument into the function being called. If the front-end library supports `Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be assigned to the `Context` component.
+rmemo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection). The `ctx` is typically passed as an argument into the function being called. If the front-end library supports `Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be assigned to the `Context` component.
 
 ### context example
 
