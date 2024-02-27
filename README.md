@@ -135,7 +135,7 @@ export const user_a$_ = be_(()=>
         .then(res=>res.json())
         .then(user_a=>user_a$._ = user_a)))
 export function user__add(ctx:ctx_T, user:User) {
-  user_a$_(ctx)([...user_a$_(ctx)(), user])
+  user_a$_(ctx)._ = [...user_a$_(ctx)(), user]
 }
 export interface User {
   id:number
