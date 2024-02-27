@@ -39,7 +39,9 @@ export const user_a$ = sig_<User[]>([])
   .add(user_a$=>
     fetch('https://my.api/users')
       .then(res=>res.json())
-      .then(user_a=>user_a$._ = user_a))
+      .then(user_a=>user_a$._ = user_a)
+      // Make sure async errors are handled
+      .catch(err=>console.error(err)))
 export function user__add(user:User) {
   user_a$._ = [...user_a$(), user]
 }
@@ -133,7 +135,8 @@ export const user_a$_ = be_(()=>
     .add(user_a$=>
       fetch('https://an.api/users')
         .then(res=>res.json())
-        .then(user_a=>user_a$._ = user_a)))
+        .then(user_a=>user_a$._ = user_a)
+        .catch(err=>console.error(err))))
 export function user__add(ctx:ctx_T, user:User) {
   user_a$_(ctx)._ = [...user_a$_(ctx)(), user]
 }
@@ -173,7 +176,8 @@ export const [
 ).add((ctx, user_a$)=>
   fetch('https://an.api/users')
     .then(res=>res.json())
-    .then(user_a=>user_a$._ = user_a))
+    .then(user_a=>user_a$._ = user_a)
+    .catch(err=>console.error(err)))
 export function user__add(ctx:ctx_T, user:User) {
   user_a__set(ctx, [...user_a_(ctx), user])
 }
@@ -189,7 +193,6 @@ export interface User {
 // admins.ts
 import { be_memo_pair_ } from 'rmemo'
 import { type User, user_a_ } from './users.js'
-// uses the function argument to instantiate a rmemo
 export const [
   admin_a$_,
   admin_a_,
