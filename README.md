@@ -166,7 +166,7 @@ Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides 
 import { be_sig_triple_, type ctx_T } from 'rmemo'
 export const [
   user_a$_,
-  user_a_
+  user_a_,
   user_a__set,
 ] = be_sig_triple_<User[]>(
   ()=>[]
