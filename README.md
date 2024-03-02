@@ -1,9 +1,12 @@
 # rmemo (Reactive Memo)
 
-rmemo is a tiny no-fluff state management library using reactive memos & reactive signals for the server & browser. This includes:
+rmemo is a tiny no-fluff reactive state management library. The primitive is a reactive memo. A reactive signal is a reactive memo that has a public setter property. rmemo includes memosig, lock_memosig, & a rich api for your reactive state management needs. Features include:
 
-* reactive memos
-* reactive signals
+* `memo_`
+* `signal_`
+* `memosig_`
+* `lock_memosig_`
+* general purpose contexts with [`ctx-core/be`](https://github.com/ctx-core/be)
 * autosubscriptions
 * async support
 * a terse & focused api
@@ -27,7 +30,7 @@ npm i rmemo
 ```
 [//]: @formatter:on
 
-rmemo is part of the ctx-core package so installing the ctx-core package & using the `ctx-core/rmemo` export will enable usage of rmemo. There is also a standalone `rmemo` package which exports `ctx-core/rmemo`
+rmemo is part of the [ctx-core](https://github.com/ctx-core/ctx-core) package. Importing `ctx-core/rmemo` will enable usage of rmemo. There is also a standalone `rmemo` package.
 
 ## usage
 
@@ -63,11 +66,11 @@ export const admin_a$ = memo_(()=>user_a$().filter(i=>i.isAdmin))
 
 ## integration with relementjs
 
-rmemo provides optional opt-in reactivity to [relementjs](https://github.com/relementjs/relementjs). Elements, Element attributes + Element props can be reactively rendered by passing in a `memo_` on `sig_` instance.
+rmemo provides optional opt-in reactivity to [relementjs](https://github.com/relementjs/relementjs). Gives reativity to Element rendering, Element attributes/props rendering.
 
 ## how is rmemo different?
 
-rmemo is a small & focused library. It supports `memo_` (like nanostores `computed`, svelte `derived`, solidjs `createMemo`, & VanJS `derive`) & `sig_` (like nanostore `atom`, svelte `writable`, solidjs `createSignal`, & VanJS `state`).
+rmemo is a small & focused library. `memo_`  is like nanostore's `computed`, svelte's `derived`, solidjs' `createMemo`, & VanJS' `derive`. & `sig_` is like nanostore's `atom`, svelte's `writable`, solidjs' `createSignal`, & VanJS' `state`.
 
 |                                                       | **rmemo** |  **nanostores**  |    **solidjs**     |    **sveltejs**    | **vanjs** |
 |-------------------------------------------------------|:---------:|:----------------:|:------------------:|:------------------:|:---------:|
@@ -82,49 +85,49 @@ rmemo is a small & focused library. It supports `memo_` (like nanostores `comput
 | **contexts**                                          |     ✅     | ❌ (next version) | ✅ (component tree) | ✅ (component tree) |     ❌     |
 | **Automatic Garbage Collection of derived reactives** |     ✅     | ❌  | ✅ | ❌ |     ✅     |
 
-Since ctx-core is a general purpose context library, ctx-core's context functions (`be_` & `ctx__new`) are compatible with all of these libraries. ctx-core context functions are included in the rmemo package.
+ctx-core is a general purpose context library. ctx-core's context functions (`be_` & `ctx__new`) are compatible with any state management library. rmemo exports the `ctx-core/be` package.
 
 ## advanced rmemos
 
-| function                        | description                                                                                                                                                           |
-|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `.add(cb)`                      | Call the given cb when the rmemo is loaded by being called. Can be used to call async functions. If a rmemo is returned, the rmemo will be activated.                 |
-| `memosig_`                      | A memo signal or a settable memo. If a memosig is programatically set & the parent rmemo changes, the memosig value resets.                                           |
-| `lock_memosig_`                 | Also a memo signal or a settable memo. If the memosig is programatically set, the lock_memosig locks...meaning if the parent rmemo changes, the value remains locked. |
-| `be_sig_triple_`                | Returns an array of 3 context be_ functions. sig object getter, value getter, & value setter                                                                          |
-| `id_be_sig_triple_`             | Same as `be_sig_triple_` + sets the id of the `be` function                                                                                                           |
-| `ns_id_be_sig_triple_`          | Same as `be_sig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                    |
-| `ns_be_sig_triple_`             | Same as `be_sig_triple_` & operates on the given ctx namespace.                                                                                                       |
-| `be_memo_pair_`                 | Returns an array of 2 context be_ functions. memo object getter & value getter.                                                                                       |
-| `id_be_memo_pair_`              | Same as `be_memo_pair_` + sets the id of the `be` function                                                                                                            |
-| `ns_id_be_memo_pair_`           | Same as `be_memo_pair_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                     |
-| `ns_be_memo_pair_`              | Same as `be_memo_pair_` & operates on the given ctx namespace.                                                                                                        |
-| `be_memosig_triple_`            | Returns an array of 3 context be_ functions. memosig object getter, value getter, & value setter                                                                      |
-| `id_be_memosig_triple_`         | Same as `be_memosig_triple_` + sets the id of the `be` function                                                                                                       |
-| `ns_id_be_memosig_triple_`      | Same as `be_memosig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                |
-| `ns_be_memosig_triple_`         | Same as `be_memosig_triple_` & operates on the given ctx namespace.                                                                                                   |
-| `be_lock_memosig_triple_`       | Returns an array of 3 context be_ functions. lock_memosig object getter, value getter, & value setter                                                                 |
-| `id_be_lock_memosig_triple_`    | Same as `be_lock_memosig_triple_` + sets the id of the `be` function                                                                                                  |
-| `ns_id_be_lock_memosig_triple_` | Same as `be_lock_memosig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                           |
-| `ns_be_lock_memosig_triple_`    | Same as `be_lock_memosig_triple_` & operates on the given ctx namespace.                                                                                              |
-| `rmemo__wait`                   | Wait for rmemo to match given condition with a timeout                                                                                                                |
-| `rmemo__off`                    | Turn off a rmemo & remove references to parent rmemos. Note that if the rmemo is weakly held by the parent rmemo using `WeakRef`.                                     |
-| `rmemo__on`                     | Turn on a rmemo, readding the rmemo to be weakly held by parent rmemos.                                                                                               |
-| `rmemo__unset`                  | Unset the rmemo. The rmemo be refreshed the next time the rmemo is called.                                                                                            |
+| function                        | description                                                                                                                                                                                                                                   |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `.add(cb)`                      | Call the given cb when the memo loads. Used to define memo listeners, call async functions, and other tasks dependent on the memo. If the cb returns a reactive memo, the add function manages starting the memo.                             |
+| `memosig_`                      | A memo signal & a settable memo. Changes to the parent memo resets the memosig, even after setting the `memosig._` prop.                                                                                                                      |
+| `lock_memosig_`                 | A memo signal & a settable memo. Changes to the parent memo only resets the memosig when if the `lock_memosig._` setter was not set. If the `lock_memosig._` setter was set, then changes to the parent memo do not reset the `lock_memosig`. |
+| `be_sig_triple_`                | Returns an array of 3 context be_ functions. sig object getter, value getter, & value setter                                                                                                                                                  |
+| `id_be_sig_triple_`             | Same as `be_sig_triple_` + sets the id of the `be` function                                                                                                                                                                                   |
+| `ns_id_be_sig_triple_`          | Same as `be_sig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                                                                                            |
+| `ns_be_sig_triple_`             | Same as `be_sig_triple_` & operates on the given ctx namespace.                                                                                                                                                                               |
+| `be_memo_pair_`                 | Returns an array of 2 context be_ functions. memo object getter & value getter.                                                                                                                                                               |
+| `id_be_memo_pair_`              | Same as `be_memo_pair_` + sets the id of the `be` function                                                                                                                                                                                    |
+| `ns_id_be_memo_pair_`           | Same as `be_memo_pair_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                                                                                             |
+| `ns_be_memo_pair_`              | Same as `be_memo_pair_` & operates on the given ctx namespace.                                                                                                                                                                                |
+| `be_memosig_triple_`            | Returns an array of 3 context be_ functions. memosig object getter, value getter, & value setter                                                                                                                                              |
+| `id_be_memosig_triple_`         | Same as `be_memosig_triple_` + sets the id of the `be` function                                                                                                                                                                               |
+| `ns_id_be_memosig_triple_`      | Same as `be_memosig_triple_` + sets the id of the `be` function & operates on the given ctx namespace.                                                                                                                                        |
+| `ns_be_memosig_triple_`         | Same as `be_memosig_triple_` & operates on the given ctx namespace.                                                                                                                                                                           |
+| `be_lock_memosig_triple_`       | Returns an array of 3 context be_ functions. lock_memosig object getter, value getter, & value setter                                                                                                                                         |
+| `id_be_lock_memosig_triple_`    | Same as `be_lock_memosig_triple_` + sets the id of the `be` function                                                                                                                                                                          |
+| `ns_id_be_lock_memosig_triple_` | Same as `be_lock_memosig_triple_`. Also sets the id of the `be` function & operates on the given ctx namespace.                                                                                                                               |
+| `ns_be_lock_memosig_triple_`    | Same as `be_lock_memosig_triple_` & operates on the given ctx namespace.                                                                                                                                                                      |
+| `rmemo__wait`                   | Wait for memo to match given condition with a timeout                                                                                                                                                                                         |
+| `rmemo__off`                    | Turn off a memo & remove references to parent memos. Note that the parent memo references the child rmemo using `WeakRef`. This allows the child memo to not receive updates pending Garbage Collection.                                      |
+| `rmemo__on`                     | Turn on a memo. Re-adds the memo to the WeakRef held by parent memos.                                                                                                                                                                         |
+| `rmemo__unset`                  | Unset the memo value. Calling the memo again causes the memo to refresh.                                                                                                                                                                      |
 
-## context
+## context (`ctx`)
 
-Contexts are useful for managing state & disposing of state with Garbage Collection. The current context can be filled with state. When it's time to dispose of the state, one can use Garbage Collection as long as all active references to the `ctx` are removed.
+Contexts are useful for managing state & disposing of state with Garbage Collection. The context holds state. Garbage Collection disposes the state by removing all active references to the `ctx`.
 
-rmemo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection). The `ctx` is typically passed as an argument into the function being called. If the front-end library supports `Context` components, as React, Sveltejs, Solidjs, & others do, the `ctx` can be assigned to the `Context` component.
+rmemo includes functions to support contexts using ctx-core. ctx-core uses [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection). By passing the `ctx` as an argument to a function. Most front-end libraries support `Context` components. These libraries include React, Sveltejs, Solidjs, & others. Assigning the `ctx` to the `Context` component give child components access to the `ctx`.
 
 ### context example
 
-The above example works on the browser side, since there is only one instance `user_a$` & `admin_a$` to render the UI. The server can handle multiple requests concurrency. Defining module level rmemos is not concurrency safe. Concurrent requests will result in data from one request spilling over into another request.
+This example works on the browser side. There is only one instance `user_a$` & `admin_a$` to render the UI. The server handles concurrent requests. Concurrent requests disallows global or module variables to store request state. So memos stored as module variables is not concurrency safe.
 
-A `ctx` solves this issue by storing the rmemo instances in the `ctx`. Each request instantiates a `ctx` via `ctx_()`.
+A `ctx` solves this issue by storing the memo instances in the `ctx`. Each request instantiates a `ctx` via `ctx_()`. A shorted alias to `ctx__new()`.
 
-ctx-core usese the `be_` function to define a memoized function to set a "slot" in the `ctx`.
+ctx-core uses the `be_` function to define a memoized function to set a "slot" in the `ctx`.
 
 [//]: @formatter:off
 ```ts
@@ -161,7 +164,7 @@ export const admin_a$_ = be_(ctx=>
 
 ### context with helper functions example
 
-Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is a bit awkward. rmemo provides some helper functions.
+Calling `user_a$_(ctx)()` & `admin_a$_(ctx)()` is awkward. So rmemo provides some helper functions.
 
 [//]: @formatter:off
 ```ts
@@ -204,10 +207,10 @@ export const [
 
 ## Note about the Tag Vector Name Convention
 
-You may have noticed that underscore casing is used & the trailing `_` for factory functions. This is from the development of the [Tag Vector](https://www.briantakita.me/posts/tag-vector-0-introduction) name convention.
+You may have noticed the usage of underscore casing. And the trailing `_` for factory functions. The [Tag Vector](https://www.briantakita.me/posts/tag-vector-0-introduction) name system describes these patterns.
 
 ## motivation
 
-I'm a fan of reactive state management solutions provided by nanostores, solidjs, svelte, & vanJS. I wanted one of these solutions to be a general solution that I can use on the browser & server, with web UIs & domain libraries. Each of these projects are focused on their particular objectives. I found they were unable to support my use cases in one way or another.
+I liked & used some popular reactive state management solutions. These popular libraries include nanostores, solidjs, svelte, & vanJS. I needed a general solution that I can use on the browser & server, with web UIs & domain libraries. For automating builds & deployments. These projects focus on their particular objectives. I found they were unable to support my use cases in one way or another.
 
-Between an impasse in adding autosubscriptions to nanostores & adding server-side reactive support to vanJS, I created rmemo.
+An impasse in adding autosubscriptions to nanostores. An impasse in adding server-side reactive support to vanJS. Both led me to create rmemo.
