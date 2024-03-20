@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.47.1
+
+### Patch Changes
+
+- package.json: author: url,email
+- Updated dependencies
+  - ctx-core@6.6.1
+
 ## 0.47.0
 
 ### Minor Changes

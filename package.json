@@ -1,6 +1,6 @@
 {
 	"name": "rmemo",
-	"version": "0.47.0",
+	"version": "0.47.1",
 	"description": "ctx-core rmemo",
 	"keywords": [
 		"ctx-core",
@@ -22,7 +22,11 @@
 		"url": "https://github.com/ctx-core/rmemo.git"
 	},
 	"license": "Apache-2.0",
-	"author": "Brian Takita",
+	"author": {
+		"name": "Brian Takita",
+		"url": "https://briantakita.me",
+		"email": "info+rmemo@briantakita.me"
+	},
 	"type": "module",
 	"types": "./index.d.ts",
 	"exports": {
@@ -41,7 +45,7 @@
 		"disable:test:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^6.6.0"
+		"ctx-core": "^6.6.1"
 	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^11.1.1",
