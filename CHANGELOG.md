@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.49.2
+
+### Patch Changes
+
+- rmemo**off**add: fix: argument type
+- Updated dependencies
+  - ctx-core@7.0.1
+
 ## 0.49.1
 
 ### Patch Changes
