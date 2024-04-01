@@ -1,5 +1,67 @@
 # rmemo
 
+## 0.49.0
+
+### Minor Changes
+
+- minor:
+
+      memo_: more efficient instantiation: + ∋ memo__run: replaces instantiated .f function with closure scope
+      ._ getter removed:
+      	memo_
+      	sig_
+      	memosig_
+      	lock_memosig_
+      ._ = setter renamed to .set():
+      	sig_
+      	memosig_
+      	lock_memosig_
+      arguments: + add_def_a1?:rmemo_add_def_T<val_T, E>[]:
+      	memo_
+      	sig_
+      	memosig_
+      	lock_memosig_
+      	.memo_
+      arguments: + add_def_a1?:be_rmemo_add_def_T<val_T, ns_T, E, ctx_T>[]:
+      	be_memo_pair_
+      	ns_be_memo_pair_
+      	id_be_memo_pair_
+      	ns_id_be_memo_pair_
+      	be_sig_triple_
+      	ns_be_sig_triple_
+      	id_be_sig_triple_
+      	ns_id_be_sig_triple_
+      	be_memosig_triple_
+      	ns_be_memosig_triple_
+      	id_be_memosig_triple_
+      	ns_id_be_memosig_triple_
+      	be_lock_memosig_triple_
+      	ns_be_lock_memosig_triple_
+      	id_be_lock_memosig_triple_
+      	ns_id_be_lock_memosig_triple_
+      - .add:
+      	be_memo_pair_T
+      	be_sig_triple_T
+      	be_memosig_triple_T
+      	be_lock_memosig_triple_T
+      + ns_ondelete_be_
+      + id_ondelete_be_
+      + ns_id_ondelete_be_
+
+  size-limit:
+
+      be_: + 2 B
+      memo_: - 18 B
+      memo_ sig_: - 13 B
+      memo_ sig_ be_ ctx_: - 22 B
+      memo_ sig_ be_ ctx_ be_memo_pair_ be_sig_triple_: - 32 B
+      web_animation: - 23 B
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@6.9.0
+
 ## 0.48.5
 
 ### Patch Changes

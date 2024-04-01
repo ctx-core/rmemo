@@ -15,10 +15,10 @@ rmemo is a tiny no-fluff reactive state management library. The primitive is a r
 
 | imports                                                    | size  |
 |------------------------------------------------------------|:-----:|
-| memo_                                                      | 376 B |
-| memo_ + sig_                                               | 394 B |
-| memo_ + sig_ + be_ + ctx_                                  | 498 B |
-| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 591 B |
+| memo_                                                      | 358 B |
+| memo_ + sig_                                               | 381 B |
+| memo_ + sig_ + be_ + ctx_                                  | 476 B |
+| memo_ + sig_ + be_ + ctx_ + be_memo_pair_ + be_sig_triple_ | 559 B |
 
 ## installation
 
@@ -38,13 +38,14 @@ rmemo is part of the [ctx-core](https://github.com/ctx-core/ctx-core) package. I
 ```ts
 // users.ts
 import { sig_ } from 'rmemo' // or 'ctx-core/rmemo'
-export const user_a$ = sig_<User[]>([])
-  .add(user_a$=>
+export const user_a$ = sig_<User[]>([], [
+  user_a$=>
     fetch('https://my.api/users')
       .then(res=>res.json())
       .then(user_a=>user_a$._ = user_a)
       // Make sure async errors are handled
-      .catch(err=>console.error(err)))
+      .catch(err=>console.error(err))
+])
 export function user__add(user:User) {
   user_a$._ = [...user_a$(), user]
 }
@@ -91,7 +92,6 @@ ctx-core is a general purpose context library. ctx-core's context functions (`be
 
 | function                        | description                                                                                                                                                                                                                                   |
 |---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `.add(cb)`                      | Call the given cb when the memo loads. Used to define memo listeners, call async functions, and other tasks dependent on the memo. If the cb returns a reactive memo, the add function manages starting the memo.                             |
 | `memosig_`                      | A memo signal & a settable memo. Changes to the parent memo resets the memosig, even after setting the `memosig._` prop.                                                                                                                      |
 | `lock_memosig_`                 | A memo signal & a settable memo. Changes to the parent memo only resets the memosig when if the `lock_memosig._` setter was not set. If the `lock_memosig._` setter was set, then changes to the parent memo do not reset the `lock_memosig`. |
 | `be_sig_triple_`                | Returns an array of 3 context be_ functions. sig object getter, value getter, & value setter                                                                                                                                                  |
@@ -134,12 +134,13 @@ ctx-core uses the `be_` function to define a memoized function to set a "slot" i
 // users.ts
 import { be_, type ctx_T, sig_ } from 'rmemo'
 export const user_a$_ = be_(()=>
-  sig_<User[]>([])
-    .add(user_a$=>
+  sig_<User[]>([], [
+    user_a$=>
       fetch('https://an.api/users')
         .then(res=>res.json())
         .then(user_a=>user_a$._ = user_a)
-        .catch(err=>console.error(err))))
+        .catch(err=>console.error(err))
+  ]))
 export function user__add(ctx:ctx_T, user:User) {
   user_a$_(ctx)._ = [...user_a$_(ctx)(), user]
 }
@@ -175,12 +176,13 @@ export const [
   user_a_,
   user_a__set,
 ] = be_sig_triple_<User[]>(
-  ()=>[]
-).add((ctx, user_a$)=>
-  fetch('https://an.api/users')
-    .then(res=>res.json())
-    .then(user_a=>user_a$._ = user_a)
-    .catch(err=>console.error(err)))
+  ()=>[], [
+    (ctx, user_a$)=>
+      fetch('https://an.api/users')
+        .then(res=>res.json())
+        .then(user_a=>user_a$._ = user_a)
+        .catch(err=>console.error(err))
+  ])
 export function user__add(ctx:ctx_T, user:User) {
   user_a__set(ctx, [...user_a_(ctx), user])
 }
