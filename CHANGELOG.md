@@ -1,5 +1,12 @@
 # rmemo
 
+## 0.49.1
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@7.0.0
+
 ## 0.49.0
 
 ### Minor Changes
