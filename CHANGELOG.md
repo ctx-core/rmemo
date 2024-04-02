@@ -1,5 +1,20 @@
 # rmemo
 
+## 0.50.0
+
+### Minor Changes
+
+- minor:
+
+      + id_be
+      + ns_be
+      + ns_id_be
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@7.1.0
+
 ## 0.49.3
 
 ### Patch Changes
