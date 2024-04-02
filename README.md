@@ -1,6 +1,6 @@
 # rmemo (Reactive Memo)
 
-rmemo is a tiny no-fluff reactive state management library. The primitive is a reactive memo. A reactive signal is a reactive memo that has a public setter property. rmemo includes memosig, lock_memosig, & a rich api for your reactive state management needs. Features include:
+rmemo is a tiny no-fluff reactive state management library. The primitive is a reactive memo. A reactive signal is a reactive memo that has a public `.set` function. rmemo includes `memosig`, `lock_memosig`, & a rich api for your reactive state management needs. Features include:
 
 * `memo_`
 * `signal_`
@@ -216,3 +216,7 @@ You may have noticed the usage of underscore casing. And the trailing `_` for fa
 I liked & used some popular reactive state management solutions. These popular libraries include nanostores, solidjs, svelte, & vanJS. I needed a general solution that I can use on the browser & server, with web UIs & domain libraries. For automating builds & deployments. These projects focus on their particular objectives. I found they were unable to support my use cases in one way or another.
 
 An impasse in adding autosubscriptions to nanostores. An impasse in adding server-side reactive support to vanJS. Both led me to create rmemo.
+
+## Name Convention
+
+I use the [tag vector name system](https://briantakita.me/posts/tag-vector-0-introduction). An app can have many reactive elements defined. Especially when these reactive elements make up the domain model. Tag Vector provides terse & expressive api for these many instances.

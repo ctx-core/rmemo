@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.50.1
+
+### Patch Changes
+
+- README: + Name Convention
+
 ## 0.50.0
 
 ### Minor Changes
