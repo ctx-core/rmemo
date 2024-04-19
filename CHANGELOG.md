@@ -1,5 +1,16 @@
 # rmemo
 
+## 0.51.0
+
+### Minor Changes
+
+- - ref\_\_bind
+
+### Patch Changes
+
+- Updated dependencies
+  - ctx-core@7.2.0
+
 ## 0.50.6
 
 ### Patch Changes
