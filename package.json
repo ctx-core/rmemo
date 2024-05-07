@@ -1,6 +1,6 @@
 {
 	"name": "rmemo",
-	"version": "0.51.5",
+	"version": "0.51.6",
 	"description": "ctx-core rmemo",
 	"keywords": [
 		"ctx-core",
@@ -45,7 +45,7 @@
 		"disable:test:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^7.2.5"
+		"ctx-core": "^7.2.6"
 	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^11.1.2",
