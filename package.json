@@ -50,7 +50,7 @@
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^11.1.4",
 		"c8": "^9.1.0",
-		"check-dts": "^0.7.2",
+		"check-dts": "^0.8.0",
 		"size-limit": "^11.1.4",
 		"tsx": "^4.10.5",
 		"typescript": "next",
