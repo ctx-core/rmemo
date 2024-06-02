@@ -42,12 +42,12 @@ export const user_a$ = sig_<User[]>([], [
   user_a$=>
     fetch('https://my.api/users')
       .then(res=>res.json())
-      .then(user_a=>user_a$._ = user_a)
+      .then(user_a=>user_a$.set(user_a))
       // Make sure async errors are handled
       .catch(err=>console.error(err))
 ])
 export function user__add(user:User) {
-  user_a$._ = [...user_a$(), user]
+  user_a$.set([...user_a$(), user])
 }
 export interface User {
   id:number
@@ -138,11 +138,11 @@ export const user_a$_ = be_(()=>
     user_a$=>
       fetch('https://an.api/users')
         .then(res=>res.json())
-        .then(user_a=>user_a$._ = user_a)
+        .then(user_a=>user_a$.set(user_a))
         .catch(err=>console.error(err))
   ]))
 export function user__add(ctx:ctx_T, user:User) {
-  user_a$_(ctx)._ = [...user_a$_(ctx)(), user]
+  user_a$_(ctx).set([...user_a$_(ctx)(), user])
 }
 export interface User {
   id:number
@@ -180,7 +180,7 @@ export const [
     (ctx, user_a$)=>
       fetch('https://an.api/users')
         .then(res=>res.json())
-        .then(user_a=>user_a$._ = user_a)
+        .then(user_a=>user_a$.set(user_a))
         .catch(err=>console.error(err))
   ])
 export function user__add(ctx:ctx_T, user:User) {

@@ -1,5 +1,11 @@
 # rmemo
 
+## 0.51.14
+
+### Patch Changes
+
+- README: calling .set() on a rmemo: fix: use .set() instead of .\_ =
+
 ## 0.51.13
 
 ### Patch Changes
