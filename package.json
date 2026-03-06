@@ -37,11 +37,11 @@
 		"build": ":",
 		"clean": ":",
 		"exec": "$@",
-		"prepublishOnly": "pnpm clean && pnpm build",
-		"test": "pnpm run /^test:/",
+		"prepublishOnly": "bun run clean && bun run build && publint && attw --pack --ignore-rules cjs-resolves-to-esm",
+		"test": "bun run test:size && bun run test:unit",
 		"test:size": "size-limit",
 		"test:unit": "tsx node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
-		"disable:test:coverage": "c8 pnpm test:unit"
+		"disable:test:coverage": "c8 bun run test:unit"
 	},
 	"dependencies": {
 		"ctx-core": "*"
