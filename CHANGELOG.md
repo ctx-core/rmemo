@@ -1,5 +1,13 @@
 # rmemo
 
+## 0.51.34
+
+### Patch Changes
+
+- chore: migrate scripts from pnpm to bun
+- Updated dependencies
+  - ctx-core@7.2.34
+
 ## 0.51.33
 
 ### Patch Changes
